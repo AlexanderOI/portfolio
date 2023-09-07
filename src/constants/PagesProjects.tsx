@@ -9,6 +9,16 @@ export const projectsInfo: ProjectsInfo = {
       name: "Database Scrum",
       description: "Scrum de base de datos de producto simple",
       skills: ["Python", "PyQt5", "SQLite"]
+    },
+    {
+      name: "Database Scrum",
+      description: "Scrum de base de datos de producto simple",
+      skills: ["Python", "PyQt5", "SQLite"]
+    },
+    {
+      name: "Database Scrum",
+      description: "Scrum de base de datos de producto simple",
+      skills: ["Python", "PyQt5", "SQLite"]
     }
   ],
   'en': [

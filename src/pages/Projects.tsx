@@ -1,5 +1,6 @@
 import { styled } from "styled-components"
 import { projectsInfo } from "../constants/PagesProjects"
+import { NavLink } from "react-router-dom"
 
 const Ul = styled.ul`
   display: grid;
@@ -7,6 +8,7 @@ const Ul = styled.ul`
   padding: 10px;
   gap: 20px;
   list-style: none;
+  width: 100%;
 
   li {
     display: flex;
@@ -15,8 +17,16 @@ const Ul = styled.ul`
     align-items: center;
     background-color: rgba(97, 97, 97, 0.5);
     border-radius: 20px;
+    width: 100%;
+    height: 100%;
     max-height: 250px;
-    padding: 20px;
+    padding: 20px 20px 20px 0px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
 
     div {
       background-color: #202020;
@@ -34,18 +44,29 @@ const Ul = styled.ul`
   }
 `
 
+const NavLinkStyled = styled(NavLink)`
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.87);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+`
+
 export function Project() {
   return (
     <Ul>
       {projectsInfo['es'].map(info => (
         <li key={info.name}>
-          <h4>{info.name}</h4>
-          <p>{info.description}</p>
-          <div>
-            {info.skills.map(skill => (
-              <span>{skill}</span>
-            ))}
-          </div>
+          <NavLinkStyled to={`/projects/${info.name.replace(' ', '-').toLocaleLowerCase()}`}>
+            <h4>{info.name}</h4>
+            <p>{info.description}</p>
+            <div>
+              {info.skills.map(skill => (
+                <span>{skill}</span>
+              ))}
+            </div>
+          </NavLinkStyled>
         </li>
       ))}
     </Ul>

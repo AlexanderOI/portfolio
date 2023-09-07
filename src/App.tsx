@@ -1,17 +1,19 @@
 import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom"
 import { styled } from "styled-components"
 import { GitHubIcon, LinkedinIcon } from "./assets/icons/SocialIcons"
-import { ImgSkills } from "./components/ImgSkills"
 import { Projects } from "./pages/Projects"
 import { Contact } from "./pages/Contact"
+import { Home } from "./pages/Home"
+import { DrojectDetails } from "./components/ProjectDetails"
 
 const Div = styled.div`
   display: inline-block;
   position: relative;
   border-radius: 20px;
   width: 80%;
-  height: 600px;
+  height: 100%;
   top: 50px;
+  padding-bottom: 50px;
 `
 
 const Header = styled.header`
@@ -77,34 +79,11 @@ const Main = styled.main`
   margin-right: 30px;
   width: 80%;
   height: 100%;
+  min-height: 600px;
 
   @media (max-width: 768px){
     width: 100%;
     margin: 0;
-  }
-`
-
-const Img = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 250px;
-  margin: 15px;
-`
-
-const Profile = styled.img`
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-`
-
-const Presentation = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-
-  h2 {
-    padding-bottom: 15px;
   }
 `
 
@@ -132,27 +111,22 @@ const Aside = styled.aside`
     display: none;
   }
 `
-function Body() {
-  return (
-    <>
-      <Img>
-        <Profile src="https://avatars.githubusercontent.com/u/112521170?s=400&u=6b8d0fde5dc60c33f02e4d2772708bdf5a37196c&v=4" alt="Foto de perfil" />
-        <span>Programming...</span>
-        <ImgSkills />
-      </Img>
 
-      <Presentation>
-        <h2>AlexanderOI</h2>
-        <p>University student of Computer Engineering, I study programming on my own</p>
-      </Presentation>
-
-    </>
-  )
-}
+const Backgraund = styled.div`
+  position: fixed;
+  background-image: url(/src/assets/images/homeImg/backgraud.jfif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  height: 100%;
+`
 
 function App() {
   return (
     <BrowserRouter >
+      <Backgraund />
       <Div>
         <Header>
           <nav>
@@ -169,8 +143,9 @@ function App() {
         <Conteiner>
           <Main>
             <Routes>
-              <Route path={'/'} element={<Body />} />
+              <Route path={'/'} element={<Home />} />
               <Route path={'/projects'} element={<Projects />} />
+              <Route path={'/projects/:project'} element={<DrojectDetails />} />
               <Route path={'/contact'} element={<Contact />} />
             </Routes>
           </Main>
