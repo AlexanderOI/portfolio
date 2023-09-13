@@ -1,23 +1,18 @@
+import logoDesnsuzu from '../assets/images/projectcsImg/logo-dentsuzu.png'
+import logoDatabase from '../assets/images/projectcsImg/logo-database.png'
+
 export const projectsInfo: ProjectsInfo = {
   'es': [
     {
       name: "Dentsuzu Shop",
       description: "Tienda de supermercado inspirada en Stock Supermarkets",
+      image: logoDesnsuzu,
       skills: ["TypeScript", "React"]
     },
     {
-      name: "Database Scrum",
-      description: "Scrum de base de datos de producto simple",
-      skills: ["Python", "PyQt5", "SQLite"]
-    },
-    {
-      name: "Database Scrum",
-      description: "Scrum de base de datos de producto simple",
-      skills: ["Python", "PyQt5", "SQLite"]
-    },
-    {
-      name: "Database Scrum",
-      description: "Scrum de base de datos de producto simple",
+      name: "Database CRUD",
+      description: "Base de datos de productos CRUD",
+      image: logoDatabase,
       skills: ["Python", "PyQt5", "SQLite"]
     }
   ],
@@ -25,11 +20,13 @@ export const projectsInfo: ProjectsInfo = {
     {
       name: 'Dentsuzu Shop',
       description: 'Supermarket store inspired by Stock Supermarkets',
+      image: logoDesnsuzu,
       skills: ['TypeScrip', 'React']
     },
     {
-      name: 'Database Scrum',
-      description: 'Simple Product Database Scrum',
+      name: 'Database CRUD',
+      description: 'CRUD Product Database',
+      image: logoDatabase,
       skills: ['Python', 'PyQt5', 'SQLite']
     }
   ]
@@ -42,5 +39,6 @@ export interface ProjectsInfo {
 interface ProjectInfo {
   name: string;
   description: string;
+  image: string
   skills: string[];
 }
