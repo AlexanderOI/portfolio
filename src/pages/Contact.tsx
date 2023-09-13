@@ -55,7 +55,7 @@ export function Contact() {
     }
 
     try {
-      const response = await fetch('https://alexander-oi-back-vw2h-dev.fl0.io/', {
+      const response = await fetch('https://alexander-oi-back-vw2h-dev.fl0.io/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
