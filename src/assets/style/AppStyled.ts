@@ -1,3 +1,4 @@
+import img from '../images/homeImg/backgraud.png'
 import styled from "styled-components"
 
 export const Div = styled.div`
@@ -38,7 +39,7 @@ export const Main = styled.main`
 
 export const Backgraund = styled.div`
   position: fixed;
-  background-image: url(/src/assets/images/homeImg/backgraud.png);
+  background-image: url(${img});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
