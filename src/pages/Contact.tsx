@@ -21,6 +21,7 @@ export function Contact() {
   const [formValidation, setFormValidation] = useState({
     isValidEmail: true,
     isValidForm: false,
+    isEmailSent: false
   })
 
   const inputLanguageCurrent = inputLanguage[languagePage]
@@ -35,13 +36,14 @@ export function Contact() {
 
   const validateForm = () => {
     const regex = /^[a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    const isValidEmail = regex.test(formData.email);
-    const isValidForm = formData.email.trim() === '' || formData.message.trim() === '' || formData.name.trim() === '' || formData.subject.trim() === '';
-
+    const isValidEmail = regex.test(formData.email)
+    const isValidForm = formData.email.trim() === '' || formData.message.trim() === '' || formData.name.trim() === '' || formData.subject.trim() === ''
+    console.log(formValidation.isValidEmail, formValidation.isValidForm)
     setFormValidation({
       isValidEmail: isValidEmail,
       isValidForm: isValidForm,
-    });
+      isEmailSent: false
+    })
 
     return !isValidEmail || isValidForm;
   }
@@ -51,11 +53,11 @@ export function Contact() {
     event.preventDefault()
 
     if (validateForm()) {
-      return;
+      return
     }
 
     try {
-      const response = await fetch('https://alexander-oi-back-vw2h-dev.fl0.io/send', {
+      const response = await fetch('http://localhost:3000/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -74,10 +76,20 @@ export function Contact() {
         const successMessage = languageMessages[languagePage].successMessage.replace('{email}', formData.email)
         setShippingConfirm(successMessage)
       } else {
-        const errorMessage = languageMessages[languagePage].errorMessage
-        setShippingConfirm(errorMessage)
+        const serverResponse = await response.json()
+
+        if (serverResponse.error) {
+          console.log('error response:', serverResponse.error)
+          setFormValidation({
+            isValidEmail: true,
+            isValidForm: false,
+            isEmailSent: true
+          })
+          setEmailCurrent('')
+        }
       }
     } catch (error) {
+
       const errorMessage = languageMessages[languagePage].errorMessage
       setShippingConfirm(errorMessage)
     }
@@ -90,6 +102,7 @@ export function Contact() {
     }
   }, [languagePage])
 
+
   return (
     <DivContact>
       <div>
@@ -99,8 +112,8 @@ export function Contact() {
       </div>
       {formValidation.isValidEmail && formValidation.isValidForm && <strong>{formItIsValid[languagePage].empty}</strong>}
       {!formValidation.isValidEmail && <strong>{formItIsValid[languagePage].email}</strong>}
-      {!formValidation.isValidEmail && emailCurrent && <strong>{shippingConfirm}</strong>}
-
+      {formValidation.isValidEmail && emailCurrent && <strong>{shippingConfirm}</strong>}
+      {formValidation.isEmailSent && <strong>{formItIsValid[languagePage].error}</strong>}
 
       <section>
         <form ref={refForm} onSubmit={handleSubmit}>

@@ -20,16 +20,19 @@ type formItIsValidType = {
   [key: string]: {
     email: string
     empty: string
+    error: string
   }
 }
 
 export const formItIsValid: formItIsValidType = {
   'es': {
     email: 'La dirección de correo electrónico es inválida',
-    empty: 'Hay campos vacíos'
+    empty: 'Hay campos vacíos',
+    error: 'Ya se envió un formulario desde este correo electrónico, inténtelo nuevamente en 3 horas'
   },
   'en': {
     email: 'The email address is invalid',
-    empty: 'There are empty fields'
+    empty: 'There are empty fields',
+    error: 'A form has already been submitted from this email, please try again in 3 hours'
   }
 }

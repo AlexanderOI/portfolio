@@ -28,6 +28,7 @@ export const DivContact = styled.div`
     padding: 15px;
     margin-top: 5px;
     margin-bottom: 20px;
+    border: none;
     border-radius: 10px;
   }
 
@@ -39,6 +40,7 @@ export const DivContact = styled.div`
     padding: 15px;
     margin-top: 5px;
     margin-bottom: 20px;
+    border: none;
     border-radius: 10px;
   }
 
@@ -56,16 +58,9 @@ export const DivContact = styled.div`
     &:hover {
      background-color: #979696; 
     }
-  }
 
-  @media(max-width: 768px){
-    input {
-      width: 100%
-    }
-
-    textarea {
-      width: 100%;
-      max-width: 100%;
+    &:active {
+     background-color: #979696; 
     }
   }
 
@@ -75,9 +70,25 @@ export const DivContact = styled.div`
     background-color: #fff;
     max-width: 80%;
     border-radius: 10px;
-    border: 3px double #000000;
+    border: none;
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
   }
+
+  @media(max-width: 768px){
+    input {
+      width: 100%;
+    }
+
+    textarea {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    strong {
+      max-width: 100%;
+    }
+  }
+
 `
