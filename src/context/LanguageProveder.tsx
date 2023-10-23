@@ -6,14 +6,14 @@ type LanguageContextType = {
 }
 
 const initialLanguageContext: LanguageContextType = {
-  languagePage: 'en',
+  languagePage: 'es',
   setLanguagePage: () => { }
 }
 
 const LanguageContext = createContext<LanguageContextType>(initialLanguageContext)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [languagePage, setLanguagePage] = useState<string>('en')
+  const [languagePage, setLanguagePage] = useState<string>('es')
 
   return (
     <LanguageContext.Provider value={{ languagePage, setLanguagePage }}>
