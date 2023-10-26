@@ -3,21 +3,36 @@ import { useLanguageContext } from "../context/LanguageProveder";
 import { inputLanguage } from "../constants/inputLenguaje";
 import { formItIsValid, languageMessages } from "../constants/ContactLenguage";
 import { styled } from "styled-components"
+import { theme } from "../assets/style/themes";
 
 export const DivContact = styled.div`
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: left;
+  margin-top: 60px;
+  margin-bottom: 50px;
   width: 100%;
-  height: 100%;
-  padding: 50px;
 
   p {
     padding-top: 5px;
     padding-bottom: 5px;
   }
 
-  h3 {
-    padding-bottom: 15px;
+  h2 {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: ${theme.dark.darkblue};
+    border: 1px solid #e5e5e51a;
+  box-shadow: 0px 0px 20px #e5e5e52f;
+  }
+
+  section {
+    width: 60%;
   }
 
   div {
@@ -27,25 +42,39 @@ export const DivContact = styled.div`
 
   input {
     display: flex;
-    width: 80%;
+    color: ${theme.dark.darkWithe};
+    background-color: #1a1a1a;
     height: 30px;
     padding: 15px;
     margin-top: 5px;
     margin-bottom: 20px;
+    border-radius: 5px;
     border: none;
-    border-radius: 10px;
+    outline: none;
+    border-bottom: 3px solid ${theme.dark.darkblue};
+
+    &:focus {
+      background: linear-gradient(to top, ${theme.dark.darkblue}, #1a1a1a);
+    }
   }
 
   textarea {
     display: flex;
-    max-width: 80%;
-    width: 80%;
+    background-color: #1a1a1a;
+    color: ${theme.dark.darkWithe};
     height: 200px;
     padding: 15px;
     margin-top: 5px;
     margin-bottom: 20px;
+    border-radius: 5px;
     border: none;
-    border-radius: 10px;
+    resize: none;
+    outline: none;
+    border-bottom: 3px solid ${theme.dark.darkblue};
+
+    &:focus {
+      background: linear-gradient(to top, ${theme.dark.darkblue}, #1a1a1a);
+    }
   }
 
   label {
@@ -53,18 +82,21 @@ export const DivContact = styled.div`
   }
 
   button {
-    width: 100px;
-    height: 30px;
+    width: 100%;
+    height: 40px;
+    color: ${theme.dark.darkWithe};
+    font-size: 1em;
     border: none;
-    border-radius: 15px;
+    border-radius: 5px;
     cursor: pointer;
+    background-color: ${theme.dark.darkblue};
 
     &:hover {
-     background-color: #979696; 
+     background-color: ${theme.dark.darkblue + 'a1'};
     }
 
     &:active {
-     background-color: #979696; 
+     background-color: ${theme.dark.darkblue + 'a1'}; 
     }
   }
 
@@ -72,7 +104,6 @@ export const DivContact = styled.div`
     display: block;
     color: #000;
     background-color: #fff;
-    max-width: 80%;
     border-radius: 10px;
     border: none;
     padding: 10px;
@@ -81,17 +112,8 @@ export const DivContact = styled.div`
   }
 
   @media(max-width: 768px){
-    input {
+    section {
       width: 100%;
-    }
-
-    textarea {
-      width: 100%;
-      max-width: 100%;
-    }
-
-    strong {
-      max-width: 100%;
     }
   }
 
@@ -198,11 +220,8 @@ export function Contact() {
 
   return (
     <DivContact>
-      <div>
-        <h3>{languagePage === 'en' ? 'Contact me' : 'Contactame'}</h3>
-        <p>{languagePage === 'en' ? 'You can write to my Gmail or complete the form' : 'Puedes escribirme a mi Gmail o completa el formulario'}</p>
-        <p>Gmail: alexanderoi037@gmail.com</p>
-      </div>
+      <h2>{languagePage === 'en' ? 'Contact me' : 'Contactame'}</h2>
+
       {formValidation.isValidEmail && formValidation.isValidForm && <strong>{formItIsValid[languagePage].empty}</strong>}
       {!formValidation.isValidEmail && <strong>{formItIsValid[languagePage].email}</strong>}
       {formValidation.isValidEmail && emailCurrent && <strong>{shippingConfirm}</strong>}
@@ -218,6 +237,7 @@ export function Contact() {
               placeholder={inputLanguageCurrent.name.placeholder}
               value={formData.name}
               onChange={handleChange}
+              autoComplete="off"
               required
             />
           </div>
@@ -231,6 +251,7 @@ export function Contact() {
               placeholder={inputLanguageCurrent.gmail.placeholder}
               value={formData.email}
               onChange={handleChange}
+              autoComplete="off"
               required
             />
           </div>
@@ -243,6 +264,7 @@ export function Contact() {
               placeholder={inputLanguageCurrent.subject.placeholder}
               value={formData.subject}
               onChange={handleChange}
+              autoComplete="off"
               required
             />
           </div>
@@ -254,6 +276,7 @@ export function Contact() {
               placeholder={inputLanguageCurrent.message.placeholder}
               value={formData.message}
               onChange={handleChange}
+              autoComplete="off"
               required
             />
           </div>

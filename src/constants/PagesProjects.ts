@@ -1,5 +1,5 @@
-import logoDesnsuzu from '../assets/images/projectcsImg/logo-dentsuzu.png'
-import logoDatabase from '../assets/images/projectcsImg/logo-database.png'
+import logoDesnsuzu from '../assets/images/projectcsImg/main.png'
+import logoDatabase from '../assets/images/projectcsImg/database.png'
 
 export const projectsInfo: ProjectsInfo = {
   'es': [

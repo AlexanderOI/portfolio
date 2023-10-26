@@ -1,22 +1,20 @@
 import { GitHubIcon, LinkedinIcon } from "../assets/icons/SocialIcons"
 import { useLanguageContext } from "../context/LanguageProveder"
-import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 
 export const HeaderMain = styled.header`
   display: flex;
-  background-color: rgba(36, 36, 36, 0.70);
+  position: fixed;
+  background-color: #1a1a1aea;
   align-items: center;
   justify-content: space-between;
-  border-radius: 30px;
-  border: 5px double #666666;
+  border-bottom: 2px solid #e5e5e51a;
+  z-index: 40;
   width: 100%;
-  height: 70px;
-  margin-bottom: 30px;
+  height: 90px;
 
   div {
     display: flex;
-    padding-right: 1%;
     justify-content: center;
     align-items: center;
   }
@@ -29,6 +27,10 @@ export const HeaderMain = styled.header`
     background-color: #ffffff;
     font-size: 14px;
     border: none;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   i {
@@ -46,32 +48,63 @@ export const HeaderMain = styled.header`
   }
 
   @media(max-width: 768px) {
-    height: 100px;
+    height: 85px;
     flex-direction: column;
     justify-content: space-between;
-    padding: 10px;
+    padding: 10px 10px 0px 0px;
   }
 `
 
-export const NavLinkStyle = styled(NavLink)`
+export const NavLinkStyle = styled.a`
   text-decoration: none;
   color: #fff;
-  padding: 5px;
-  margin-left: 5px;
+  margin: 10px 10px 10px 10px;
   font-weight: 500;
   font-size: 15px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 
+  &::before, &::after {
+    margin-top: 5px;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    transition: width 0.3s ease;
+    color: #248cd1;
+  }
+
+  &::before {
+    left: 0;
+    background-color: #248cd1;
+    color: #248cd1;
+  }
+
+  &::after {
+    right: 0;
+    background-color: #248cd1;
+  }
+
+  &:hover::before, &:hover::after {
+    width: 100%;
+  }
+
+  &.active::before, &.active::after {
+    width: 100%;
+  }
+  
   &:hover {
-    color: #00416d;
-    width: 1%;
+    color: #248cd1;
   }
 
   &.active {
-    background-color: rgba(167, 167, 167, 0.5);
-    border-radius: 15px;
-    color: #00416d;
+    color: #248cd1;
   }
 `
+
+
 
 export function Header() {
   const { languagePage, setLanguagePage } = useLanguageContext()
@@ -79,9 +112,10 @@ export function Header() {
   return (
     <HeaderMain>
       <nav>
-        <NavLinkStyle to={'/'}>{languagePage == 'en' ? 'Home' : 'Inicio'}</NavLinkStyle>
-        <NavLinkStyle to={'/projects'}>{languagePage == 'en' ? 'Projects' : 'Proyectos'}</NavLinkStyle>
-        <NavLinkStyle to={'/contact'}>{languagePage == 'en' ? 'Contact me' : 'Contactame'}</NavLinkStyle>
+        <NavLinkStyle >{languagePage == 'en' ? 'Home' : 'Inicio'}</NavLinkStyle>
+        <NavLinkStyle >{languagePage == 'en' ? 'Projects' : 'Proyectos'}</NavLinkStyle>
+        <NavLinkStyle >{languagePage == 'en' ? 'About me' : 'Sobre mi'}</NavLinkStyle>
+        <NavLinkStyle >{languagePage == 'en' ? 'Contact me' : 'Contactame'}</NavLinkStyle>
       </nav>
       <div>
         <span>Language</span>
@@ -89,8 +123,8 @@ export function Header() {
           <option value="es">Es</option>
           <option value="en">En</option>
         </select>
-        <a href="https://www.linkedin.com/in/alexander-o-18a7a1248"><i><LinkedinIcon /></i></a>
-        <a href="https://github.com/AlexanderOI"><i><GitHubIcon /></i></a>
+        <a href="https://www.linkedin.com/in/alexander-o-18a7a1248" target="_blank"><i><LinkedinIcon /></i></a>
+        <a href="https://github.com/AlexanderOI" target="_blank"><i><GitHubIcon /></i></a>
       </div>
     </HeaderMain>
   )

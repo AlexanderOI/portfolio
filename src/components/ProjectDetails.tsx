@@ -73,6 +73,7 @@ export const Img = styled.img`
 
 export const NavLinkStyle = styled(NavLink)`
   text-decoration: none;
+
   button {
     background-color: #fff;
     cursor: pointer;
@@ -126,6 +127,7 @@ export const DivEnlarge = styled.div`
   }
 
   img {
+    height: 100%;
     width: 80%;
     border-radius: 30px
   }

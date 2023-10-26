@@ -1,60 +1,37 @@
-import { ImgSkills } from "../components/ImgSkills"
+import { IconsSkills } from "../components/IconsSkills"
 import { useLanguageContext } from "../context/LanguageProveder"
+
 import styled from "styled-components"
+import { Projects } from "./Projects"
+import { Contact } from "./Contact"
+import { theme } from "../assets/style/themes"
+import { AbautMe } from "../components/AbautMe"
 
-export const Div = styled.div`
-  display: flex;
-
-  @media(max-width: 768px) {
-    flex-direction: column;
-  }
-`
-
-export const Img = styled.div`
+export const Main = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  max-width: 250px;
-  max-height: 250px;
-  width: 30%;
-  margin: 15px;
 
-  @media (max-width: 768px){
-    flex-direction: row;
+  @media(max-width: 768px) {
     width: 100%;
-    max-width: 500px;
-    max-height: 500px;
-    padding: 15px;
-  }
-`
-
-export const Profile = styled.img`
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-
-  @media (max-width: 768px){
-    flex-direction: row;
-    max-width: 100px;
-    max-height: 100px;
   }
 `
 
 export const Presentation = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  padding: 20px;
-
-  h1 {
-    color: #249999;
-    padding-bottom: 15px;
-  }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+    "profile title title"
+    "profile text text";
 
   p {
+    font-size: 2em;
     text-align: left;
     padding-top: 15px;
     padding-bottom: 15px;
+
+    @media (max-width: 768px) {
+      font-size: 1em;
+    }
   }
 
   a {
@@ -67,47 +44,109 @@ export const Presentation = styled.div`
 
   @media (max-width: 768px){
     width: 100%;
+    grid-template-areas:
+    "profile title title"
+    "text text text";
   }
+`
+export const Profile = styled.div`
+  grid-area: profile;
+  position: relative;
+  max-width: 300px;
+  padding: 15px;
+
+  span {
+    font-size: 2em;
+    color: ${theme.dark.darkblue};
+
+    @media (max-width: 768px) {
+      font-size: 1em;
+    }
+  }
+
+  @media (max-width: 768px){
+    display: block;
+    flex-direction: row;
+    max-width: 200px;
+    margin: 0;
+  }
+
+  img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+
+    @media (max-width: 768px){
+      flex-direction: row;
+      max-width: 80px;
+      max-height: 80px;
+    }
+  }
+`
+
+const Title = styled.div`
+  grid-area: title;
+  margin: auto;
+
+  h1 {
+    padding-bottom: 15px;
+    background: linear-gradient(to top right, #00416d, #7cb4da);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-clip: text;
+    font-size: 3em;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      line-height: 100%;
+      margin-top: 15px;
+      font-size: 1.5em;
+    }
+  }
+`
+
+const Text = styled.div`
+  grid-area: text;
   
+  p {
+    text-align: center;
+    margin: auto;
+  }
 `
 
 export function Home() {
   const { languagePage } = useLanguageContext()
 
   return (
-    <Div>
-      <Img>
-        <div>
-          <Profile src="https://avatars.githubusercontent.com/u/112521170?s=400&u=6b8d0fde5dc60c33f02e4d2772708bdf5a37196c&v=4" alt="Foto de perfil" />
-          <span>{languagePage === 'en' ? 'Programming...' : 'Programando...'}</span>
-        </div>
-        <ImgSkills />
-      </Img>
-
+    <Main>
       <Presentation>
-        {languagePage === 'en' ?
-          <>
-            <h1>Welcome to My Portfolio: AlexanderOI</h1>
-            < p > My name is Alexander Ortiz, I'm a Junior Developer passionate about computer technology and programming. Currently, I am studying computer engineering at the Universidad del Cono Sur de las Américas, and I am in my 4th semester.</p>
-
-            <p>In my free time, I engage in Front-End development with React, although I'm always willing to learn new technologies related to software development. This website was created with the knowledge I have acquired so far.</p>
-
-            <p>A phrase that represents me is "Never stop learning." I invite you to visit my GitHub where you will find my projects. You can also see a brief explanation of each project in the "Projects" tab. If you want to contact me, you can do so through my email: <a href="mailto:alexanderoi037@gmail.com">alexanderoi037@gmail.com</a> or by filling out the form on the "Contact me" tab.</p>
-          </>
-          :
-          <>
-            <h1>Bienvenido a mi Portafolio: AlexanderOI</h1>
-            <p>Me llamo Alexander Ortiz, soy un Desarrollador Junior apasionado por la tecnología informática y la programación. Actualmente, estoy estudiando ingeniería en informática en la Universidad del Cono Sur de las Américas, y estoy en el 4to semestre.</p>
-
-            <p>En mi tiempo libre, practico desarrollo Front-End con React, aunque  siempre estoy dispuesto a aprender nuevas tecnologías relacionadas con el desarrollo de software. Esta página web fue creada con los conocimientos que he adquirido hasta ahora.</p>
-
-            <p>Una frase que me representa es "Nunca pares de aprender". Te invito a visitar mi GitHub donde encontrarás mis proyectos. También puedes ver una breve explicación de cada proyecto en la pestaña "Proyectos". Si deseas contactarme, puedes hacerlo a través de mi correo electrónico: <a href="mailto:alexanderoi037@gmail.com">alexanderoi037@gmail.com</a> o completando el formulario en la pestaña "Contactame".</p>
-          </>
-
-
-        }
+        <Profile>
+          <img src="https://avatars.githubusercontent.com/u/112521170?s=400&u=6b8d0fde5dc60c33f02e4d2772708bdf5a37196c&v=4" alt="Foto de perfil" />
+          <span>{languagePage === 'en'
+            ? 'Programming'
+            : 'Programando'}
+            ...
+          </span>
+        </Profile>
+        <Title>
+          {languagePage === 'en'
+            ? <h1>Welcome to My Portfolio: AlexanderOI</h1>
+            : <h1>Desarrollador Junior AlexanderOI</h1>
+          }
+        </Title>
+        <Text>
+          {languagePage === 'en'
+            ? <p> My name is Alexander Ortiz, I'm a Junior Developer passionate about computer technology and programming. Currently, I am studying computer engineering</p>
+            : <p>Me llamo Alexander Ortiz Ibañez. Soy Desarrollador Junior & estudiante de Ingeniería en Informática.</p>
+          }
+        </Text>
       </Presentation>
-
-    </Div >
+      <IconsSkills />
+      <Projects />
+      <AbautMe />
+      <Contact />
+    </Main >
   )
 }
