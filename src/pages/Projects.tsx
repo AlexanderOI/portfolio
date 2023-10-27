@@ -29,6 +29,7 @@ export const Ul = styled.ul`
   list-style: none;
 
   li {
+    position: relative;
     align-items: center;
     box-shadow: 0px 0px 5px #e5e5e51a;
     border: 1px solid #e5e5e51a;
@@ -44,20 +45,13 @@ export const Ul = styled.ul`
     
     section {
       height: 80px;
-      padding: 15px;
-    }
 
-    div {
-      background-color: #868686;
-      background: linear-gradient(to bottom, #8f8f8f, #c7c7c7, #818181, #333333);
-      width: 100%;
-      height: 180px;
-      border-radius: 8px 8px 0px 0px;
-      padding-bottom: 5px;
-      padding: 5px;
-      bottom: 0;
-      span:not(:last-child) {
-        margin-right: 10px;
+      h4 {
+        padding-top: 10px;
+      }
+
+      p {
+        padding-top: 10px;
       }
     }
 
@@ -67,10 +61,34 @@ export const Ul = styled.ul`
       height: 150px;
       width: 280px;
     }
+  }
+`
 
-    span {
-      
-    }
+const ImageDemonstration = styled.div`
+  background-color: #868686;
+  background: linear-gradient(to bottom, #8f8f8f, #c7c7c7, #818181, #333333);
+  width: 100%;
+  height: 180px;
+  border-radius: 8px 8px 0px 0px;
+  padding-bottom: 5px;
+  padding: 5px;
+  bottom: 0;
+`
+
+const SkillsUsed = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  position: absolute;
+  padding: 15px;
+  bottom: 0px;
+
+  span {
+    font-size: 0.8em;
+    background-color: ${theme.dark.darkblue};
+    border: 1px solid ${theme.dark.darkWithe};
+    border-radius: 3px;
+    padding: 5px 5px 5px 5px;
   }
 `
 
@@ -88,15 +106,17 @@ export function Projects() {
         {projectsInfo[languagePage].map(info => (
           <li key={info.name}>
             <NavLinkStyled to={`/projects/${info.name.replace(' ', '-').toLocaleLowerCase()}`}>
-              <div>
+              <ImageDemonstration>
                 <img src={info.image} alt={info.description} />
-              </div>
+              </ImageDemonstration>
               <section>
                 <h4>{info.name}</h4>
                 <p>{info.description}</p>
-                {info.skills.map(skill => (
-                  <span key={skill}>{skill}</span>
-                ))}
+                <SkillsUsed>
+                  {info.skills.map(skill => (
+                    <span key={skill}>{skill}</span>
+                  ))}
+                </SkillsUsed>
               </section>
             </NavLinkStyled>
           </li>

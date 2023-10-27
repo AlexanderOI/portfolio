@@ -1,8 +1,9 @@
-import { BrowserRouter } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Home } from "./pages/Home"
 import { Header } from "./components/Header"
 import { LanguageProvider } from "./context/LanguageProveder"
 import styled from "styled-components"
+import { ProjectDetails } from "./components/ProjectDetails"
 
 export const Div = styled.div`
   display: flex;
@@ -44,7 +45,10 @@ function App() {
 
           <Conteiner>
             <Main>
-              <Home />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/proyects/:project" element={<ProjectDetails />} />
+              </Routes>
             </Main>
           </Conteiner>
         </Div>

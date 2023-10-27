@@ -25,7 +25,8 @@ export const HeaderMain = styled.header`
 
   select {
     background-color: #ffffff;
-    font-size: 14px;
+    font-size: 1em;
+    margin-right: 10px;
     border: none;
 
     &:focus {
@@ -38,7 +39,8 @@ export const HeaderMain = styled.header`
     cursor: pointer;
     width: 35px;
     height: 35px;
-    margin-left: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
     transition: transform 0.2s ease-in-out;
 
     &:hover {
@@ -60,7 +62,7 @@ export const NavLinkStyle = styled.a`
   color: #fff;
   margin: 10px 10px 10px 10px;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 1em;
   position: relative;
   overflow: hidden;
   cursor: pointer;

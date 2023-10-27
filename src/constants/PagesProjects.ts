@@ -1,5 +1,6 @@
 import logoDesnsuzu from '../assets/images/projectcsImg/main.png'
 import logoDatabase from '../assets/images/projectcsImg/database.png'
+import logoProductsAdmin from '../assets/images/projectcsImg/products-admin-view.png'
 
 export const projectsInfo: ProjectsInfo = {
   'es': [
@@ -14,6 +15,12 @@ export const projectsInfo: ProjectsInfo = {
       description: "Base de datos de productos CRUD",
       image: logoDatabase,
       skills: ["Python", "PyQt5", "SQLite"]
+    },
+    {
+      name: "Products Admin",
+      description: "Sistema de administración de Productos",
+      image: logoProductsAdmin,
+      skills: ["TypeScript", "React", "Python", "Django", "SQLite"]
     }
   ],
   'en': [
@@ -28,6 +35,12 @@ export const projectsInfo: ProjectsInfo = {
       description: 'CRUD Product Database',
       image: logoDatabase,
       skills: ['Python', 'PyQt5', 'SQLite']
+    },
+    {
+      name: "Products Admin",
+      description: "Product management system",
+      image: logoProductsAdmin,
+      skills: ["TypeScript", "React", "Python", "Django", "SQLite"]
     }
   ]
 }
