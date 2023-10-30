@@ -14,13 +14,9 @@ export const ProjectsData: ProjectsInfo = {
   'dentsuzu-shop': {
     'es': [
       {
+        id: crypto.randomUUID(),
         name: "Dentsuzu Shop",
         description: "Proyecto desarrollado con la intención de mejorar mis habilidades de Desarrollo Front-End con React y TypeScript",
-        inspiration: {
-          start: "Este proyecto está inspirado en la ",
-          end: "pagina web de Supermecados Stock",
-          url: "stock.com.py/default.aspx#"
-        },
         tools: ["TypeScript", "React", "React-router-dom", "Styled-components"],
         characteristics: [
           {
@@ -57,13 +53,9 @@ export const ProjectsData: ProjectsInfo = {
     ],
     'en': [
       {
+        id: crypto.randomUUID(),
         name: "Dentsuzu Shop",
         description: "Project developed with the intention of improving my Front-End Development skills with React and TypeScript",
-        inspiration: {
-          start: "This project is inspired by the ",
-          end: "Supermarkets Stock website",
-          url: "stock.com.py/default.aspx#"
-        },
         tools: ["TypeScript", "React", "React-router-dom", "Styled-components"],
         characteristics: [
           {
@@ -102,13 +94,9 @@ export const ProjectsData: ProjectsInfo = {
   'database-crud': {
     'es': [
       {
+        id: crypto.randomUUID(),
         name: "Database CRUD",
         description: "Proyecto desarrollado como práctica de Python con PyQt5. Es un proyecto que simula un CRUD de base de datos, permitiendo gestionar productos de forma básica.",
-        inspiration: {
-          start: "",
-          end: "",
-          url: ""
-        },
         tools: ["Python", "PyQt5", "Qt Designer", "SQLite"],
         characteristics: [
           {
@@ -139,13 +127,9 @@ export const ProjectsData: ProjectsInfo = {
     ],
     'en': [
       {
+        id: crypto.randomUUID(),
         name: "Database CRUD",
         description: "Project developed as a Python practice with PyQt5. It is a project that simulates a database CRUD, allowing basic product management.",
-        inspiration: {
-          start: "",
-          end: "",
-          url: ""
-        },
         tools: ["Python", "PyQt5", "Qt Designer", "SQLite"],
         characteristics: [
           {
@@ -186,13 +170,6 @@ export interface Languaje {
   [key: string]: ProjectInfo[]
 }
 
-interface InspirationInfo {
-  start: string
-  end: string
-  url: string
-}
-
-
 interface CharacteristicsInfo {
   boldFont: string
   paragraph: string
@@ -204,9 +181,9 @@ interface ImagesInfo {
 }
 
 interface ProjectInfo {
+  id: `${string}-${string}-${string}-${string}-${string}`
   name: string
   description: string
-  inspiration: InspirationInfo
   tools: string[]
   characteristics: CharacteristicsInfo[]
   images: ImagesInfo[]

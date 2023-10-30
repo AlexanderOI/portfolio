@@ -6,7 +6,7 @@ export const projectsInfo: ProjectsInfo = {
   'es': [
     {
       name: "Dentsuzu Shop",
-      description: "Tienda de supermercado inspirada en Stock Supermarkets",
+      description: "Tienda de supermercado",
       image: logoDesnsuzu,
       skills: ["TypeScript", "React"]
     },
@@ -14,7 +14,7 @@ export const projectsInfo: ProjectsInfo = {
       name: "Database CRUD",
       description: "Base de datos de productos CRUD",
       image: logoDatabase,
-      skills: ["Python", "PyQt5", "SQLite"]
+      skills: ["Python", "PyQt5", "Qt Designer", "SQLite"]
     },
     {
       name: "Products Admin",
@@ -26,7 +26,7 @@ export const projectsInfo: ProjectsInfo = {
   'en': [
     {
       name: 'Dentsuzu Shop',
-      description: 'Supermarket store inspired by Stock Supermarkets',
+      description: 'Supermarket store',
       image: logoDesnsuzu,
       skills: ['TypeScrip', 'React']
     },

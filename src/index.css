@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&family=Fira+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans;display=swap');
 
 * {
   box-sizing: border-box;
@@ -7,8 +7,9 @@
 }
 
 :root {
-  font-family: 'Fira Mono', monospace;
+  font-family: 'Fira sans', sans-serif;
   background-color: #1a1a1a;
   color: rgba(255, 255, 255, 0.87);
+  scroll-behavior: smooth;
   text-align: center;
 }

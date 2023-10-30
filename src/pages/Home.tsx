@@ -6,6 +6,9 @@ import { Projects } from "./Projects"
 import { Contact } from "./Contact"
 import { theme } from "../assets/style/themes"
 import { AbautMe } from "../components/AbautMe"
+import { luminousBorder } from "../assets/style/css.style"
+
+import perfil from '../../public/perfil2.jpg'
 
 export const Main = styled.div`
   display: flex;
@@ -57,7 +60,7 @@ export const Profile = styled.div`
 
   span {
     font-size: 2em;
-    color: ${theme.dark.darkblue};
+    color: ${theme.dark.blue};
 
     @media (max-width: 768px) {
       font-size: 1em;
@@ -75,6 +78,8 @@ export const Profile = styled.div`
     width: 250px;
     height: 250px;
     border-radius: 50%;
+    ${luminousBorder};
+    border: 5px solid ${theme.dark.blue};
 
     @media (max-width: 768px){
       flex-direction: row;
@@ -119,11 +124,13 @@ const Text = styled.div`
 export function Home() {
   const { languagePage } = useLanguageContext()
 
+  // const perfil2 = 'https://avatars.githubusercontent.com/u/112521170?s=400&u=6b8d0fde5dc60c33f02e4d2772708bdf5a37196c&v=4'
+
   return (
     <Main>
       <Presentation>
         <Profile>
-          <img src="https://avatars.githubusercontent.com/u/112521170?s=400&u=6b8d0fde5dc60c33f02e4d2772708bdf5a37196c&v=4" alt="Foto de perfil" />
+          <img src={perfil} alt="Foto de perfil" />
           <span>{languagePage === 'en'
             ? 'Programming'
             : 'Programando'}
@@ -132,8 +139,8 @@ export function Home() {
         </Profile>
         <Title>
           {languagePage === 'en'
-            ? <h1>Welcome to My Portfolio: AlexanderOI</h1>
-            : <h1>Desarrollador Junior AlexanderOI</h1>
+            ? <h1 id="title">Junior Developer AlexanderOI</h1>
+            : <h1 id="title">Desarrollador Junior AlexanderOI</h1>
           }
         </Title>
         <Text>

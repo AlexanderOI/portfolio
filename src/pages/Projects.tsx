@@ -1,3 +1,4 @@
+import { luminousBorder } from "../assets/style/css.style"
 import { theme } from "../assets/style/themes"
 import { projectsInfo } from "../constants/PagesProjects"
 import { useLanguageContext } from "../context/LanguageProveder"
@@ -14,9 +15,7 @@ const ContainerProyects = styled.div`
     border-radius: 10px;
     padding: 15px;
     margin-bottom: 15px;
-    background-color: ${theme.dark.darkblue};
-    border: 1px solid #e5e5e51a;
-  box-shadow: 0px 0px 20px #e5e5e52f;
+    ${luminousBorder};
   }
 `
 
@@ -85,8 +84,8 @@ const SkillsUsed = styled.div`
 
   span {
     font-size: 0.8em;
-    background-color: ${theme.dark.darkblue};
-    border: 1px solid ${theme.dark.darkWithe};
+    background-color: ${theme.dark.blue};
+    border: 1px solid ${theme.dark.withe};
     border-radius: 3px;
     padding: 5px 5px 5px 5px;
   }
@@ -101,7 +100,7 @@ export function Projects() {
 
   return (
     <ContainerProyects>
-      <h2 id="#projects">Proyectos</h2>
+      <h2 id="projects">{languagePage == 'en' ? 'Projects' : 'Proyectos'}</h2>
       <Ul>
         {projectsInfo[languagePage].map(info => (
           <li key={info.name}>

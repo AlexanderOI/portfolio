@@ -4,6 +4,9 @@ import { Header } from "./components/Header"
 import { LanguageProvider } from "./context/LanguageProveder"
 import styled from "styled-components"
 import { ProjectDetails } from "./components/ProjectDetails"
+import { DentzusuShop } from "./components/projects/DentzusuShop"
+import { DatabaseCrud } from "./components/projects/DatabaseCrud"
+import { ProductsAdmin } from "./components/projects/ProductsAdmin"
 
 export const Div = styled.div`
   display: flex;
@@ -31,7 +34,6 @@ export const Conteiner = styled.div`
 
 export const Main = styled.main`
   display: flex;
-  background-color: #1a1a1a;
   width: 100%;
   height: 100%;
 `
@@ -47,7 +49,11 @@ function App() {
             <Main>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/proyects/:project" element={<ProjectDetails />} />
+                <Route path="/projects/dentsuzu-shop" element={<DentzusuShop />} />
+                <Route path="/projects/database-crud" element={<DatabaseCrud />} />
+                <Route path="/projects/products-admin" element={<ProductsAdmin />} />
+                <Route path="/projects/:project" element={<ProjectDetails />} />
+
               </Routes>
             </Main>
           </Conteiner>

@@ -4,13 +4,13 @@ import { theme } from '../assets/style/themes';
 
 export const SectionSkills = styled.section`
   padding-top: 20px;
-  background-color: ${theme.dark.darkblue};
+  background-color: ${theme.dark.blue};
   border: 1px solid #e5e5e51a;
   box-shadow: 0px 0px 20px #e5e5e52f;
   margin: 60px 0px 100px 0px;
   
   h2 {
-    color: ${theme.dark.darkWithe};
+    color: ${theme.dark.withe};
     font-size: 2em;
     margin-bottom: 15px;
   }
@@ -18,17 +18,20 @@ export const SectionSkills = styled.section`
   div {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-auto-rows: minmax(50px, auto);
     justify-content: center;
     place-items: center;
     margin-bottom: 10px;
   }
-  @media (max-width: 768px){
+
+  @media (max-width: 768px) {
     h2 {
       font-size: 1.5em;
     }
-    
+
     div {
       grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      grid-auto-rows: minmax(50px, auto);
     }
   }
 `

@@ -4,6 +4,7 @@ import { inputLanguage } from "../constants/inputLenguaje";
 import { formItIsValid, languageMessages } from "../constants/ContactLenguage";
 import { styled } from "styled-components"
 import { theme } from "../assets/style/themes";
+import { luminousBorder } from "../assets/style/css.style";
 
 export const DivContact = styled.div`
   display: flex;
@@ -26,9 +27,7 @@ export const DivContact = styled.div`
     border-radius: 10px;
     padding: 15px;
     margin-bottom: 15px;
-    background-color: ${theme.dark.darkblue};
-    border: 1px solid #e5e5e51a;
-  box-shadow: 0px 0px 20px #e5e5e52f;
+    ${luminousBorder};
   }
 
   section {
@@ -40,10 +39,10 @@ export const DivContact = styled.div`
     flex-direction: column;
   }
 
-  input {
+  input, textarea {
     display: flex;
-    color: ${theme.dark.darkWithe};
-    background-color: #1a1a1a;
+    color: ${theme.dark.withe};
+    background-color: transparent;
     height: 30px;
     padding: 15px;
     margin-top: 5px;
@@ -51,30 +50,16 @@ export const DivContact = styled.div`
     border-radius: 5px;
     border: none;
     outline: none;
-    border-bottom: 3px solid ${theme.dark.darkblue};
+    border-bottom: 3px solid ${theme.dark.blue};
 
     &:focus {
-      background: linear-gradient(to top, ${theme.dark.darkblue}, #1a1a1a);
+      background: linear-gradient(to top, ${theme.dark.blue}, ${theme.dark.black});
     }
   }
 
   textarea {
-    display: flex;
-    background-color: #1a1a1a;
-    color: ${theme.dark.darkWithe};
     height: 200px;
-    padding: 15px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: none;
     resize: none;
-    outline: none;
-    border-bottom: 3px solid ${theme.dark.darkblue};
-
-    &:focus {
-      background: linear-gradient(to top, ${theme.dark.darkblue}, #1a1a1a);
-    }
   }
 
   label {
@@ -84,19 +69,15 @@ export const DivContact = styled.div`
   button {
     width: 100%;
     height: 40px;
-    color: ${theme.dark.darkWithe};
+    color: ${theme.dark.withe};
     font-size: 1em;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: ${theme.dark.darkblue};
+    background-color: ${theme.dark.blue};
 
-    &:hover {
-     background-color: ${theme.dark.darkblue + 'a1'};
-    }
-
-    &:active {
-     background-color: ${theme.dark.darkblue + 'a1'}; 
+    &:hover, &:active {
+     background-color: ${theme.dark.blue}a1;
     }
   }
 
@@ -113,7 +94,7 @@ export const DivContact = styled.div`
 
   @media(max-width: 768px){
     section {
-      width: 100%;
+      width: 80%;
     }
   }
 
@@ -220,7 +201,7 @@ export function Contact() {
 
   return (
     <DivContact>
-      <h2>{languagePage === 'en' ? 'Contact me' : 'Contactame'}</h2>
+      <h2 id="contact-me">{languagePage === 'en' ? 'Contact me' : 'Contáctame'}</h2>
 
       {formValidation.isValidEmail && formValidation.isValidForm && <strong>{formItIsValid[languagePage].empty}</strong>}
       {!formValidation.isValidEmail && <strong>{formItIsValid[languagePage].email}</strong>}

@@ -1,11 +1,13 @@
+import { useNavigate } from "react-router-dom"
 import { GitHubIcon, LinkedinIcon } from "../assets/icons/SocialIcons"
+import { theme } from "../assets/style/themes"
 import { useLanguageContext } from "../context/LanguageProveder"
 import styled from "styled-components"
 
 export const HeaderMain = styled.header`
   display: flex;
   position: fixed;
-  background-color: #1a1a1aea;
+  background-color: ${theme.dark.black}ea;
   align-items: center;
   justify-content: space-between;
   border-bottom: 2px solid #e5e5e51a;
@@ -106,18 +108,43 @@ export const NavLinkStyle = styled.a`
   }
 `
 
-
-
 export function Header() {
   const { languagePage, setLanguagePage } = useLanguageContext()
+  const navigate = useNavigate()
+
+  let path = window.location.pathname
+
+
+  const scrollToSection = (id: string) => {
+    if (path.length > 2) {
+      navigate('/')
+    }
+
+    const element = document.getElementById(id)
+
+    if (element) {
+      const offset = element.offsetTop - 60
+      window.scrollTo({
+        top: offset,
+        behavior: 'smooth',
+      })
+    }
+  }
 
   return (
     <HeaderMain>
       <nav>
-        <NavLinkStyle >{languagePage == 'en' ? 'Home' : 'Inicio'}</NavLinkStyle>
-        <NavLinkStyle >{languagePage == 'en' ? 'Projects' : 'Proyectos'}</NavLinkStyle>
-        <NavLinkStyle >{languagePage == 'en' ? 'About me' : 'Sobre mi'}</NavLinkStyle>
-        <NavLinkStyle >{languagePage == 'en' ? 'Contact me' : 'Contactame'}</NavLinkStyle>
+        {path.length > 2 ?
+          <NavLinkStyle onClick={() => scrollToSection('title')}>{languagePage == 'en' ? 'Home' : 'Inicio'}</NavLinkStyle>
+          :
+          <>
+            <NavLinkStyle onClick={() => scrollToSection('title')}>{languagePage == 'en' ? 'Home' : 'Inicio'}</NavLinkStyle>
+            <NavLinkStyle onClick={() => scrollToSection('projects')}>{languagePage == 'en' ? 'Projects' : 'Proyectos'}</NavLinkStyle>
+            <NavLinkStyle onClick={() => scrollToSection('abaut-me')}>{languagePage == 'en' ? 'About me' : 'Sobre mi'}</NavLinkStyle>
+            <NavLinkStyle onClick={() => scrollToSection('contact-me')}>{languagePage == 'en' ? 'Contact me' : 'Contactame'}</NavLinkStyle>
+          </>
+        }
+
       </nav>
       <div>
         <span>Language</span>
