@@ -145,8 +145,8 @@ export function Home() {
         </Title>
         <Text>
           {languagePage === 'en'
-            ? <p> My name is Alexander Ortiz, I'm a Junior Developer passionate about computer technology and programming. Currently, I am studying computer engineering</p>
-            : <p>Me llamo Alexander Ortiz Ibañez. Soy Desarrollador Junior & estudiante de Ingeniería en Informática.</p>
+            ? <p>My name is Alexander Ortiz Ibáñez. I am a Junior Developer & Computer Engineering student</p>
+            : <p>Mi nombre es Alexander Ortiz Ibáñez. Soy Desarrollador Junior & estudiante de Ingeniería Informática</p>
           }
         </Text>
       </Presentation>
