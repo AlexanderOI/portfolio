@@ -3,7 +3,6 @@ import { Home } from "./pages/Home"
 import { Header } from "./components/Header"
 import { LanguageProvider } from "./context/LanguageProveder"
 import styled from "styled-components"
-import { ProjectDetails } from "./components/ProjectDetails"
 import { DentzusuShop } from "./components/projects/DentzusuShop"
 import { DatabaseCrud } from "./components/projects/DatabaseCrud"
 import { ProductsAdmin } from "./components/projects/ProductsAdmin"
@@ -52,8 +51,6 @@ function App() {
                 <Route path="/projects/dentsuzu-shop" element={<DentzusuShop />} />
                 <Route path="/projects/database-crud" element={<DatabaseCrud />} />
                 <Route path="/projects/products-admin" element={<ProductsAdmin />} />
-                <Route path="/projects/:project" element={<ProjectDetails />} />
-
               </Routes>
             </Main>
           </Conteiner>

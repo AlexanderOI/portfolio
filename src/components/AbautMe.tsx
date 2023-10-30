@@ -121,7 +121,7 @@ export function AbautMe() {
           </>
           :
           <>
-            <p>¡Hola! Soy Alexander Ortiz, un apasionado Desarrollador Junior que encuentra su principal fuente de inspiración en el mundo de la tecnología y la programación. Actualmente soy estudiante de Ingeniería en Computación en la Universidad del Cono Sur de las Américas.</p>
+            <p>¡Hola! Soy Alexander Ortiz, un apasionado Desarrollador Junior que encuentra su principal fuente de inspiración en el mundo de la tecnología y la programación. Actualmente soy estudiante de Ingeniería en Informática en la Universidad del Cono Sur de las Américas.</p>
 
             <p>Estoy entusiasmado con el desarrollo frontend con React y el desarrollo backend con Node. Siempre estoy dispuesto a explorar nuevas tecnologías y aceptar desafíos relacionados con el desarrollo de software.</p>
 

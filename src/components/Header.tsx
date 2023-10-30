@@ -147,7 +147,7 @@ export function Header() {
 
       </nav>
       <div>
-        <span>Language</span>
+        <span>{languagePage == 'en' ? 'Language' : 'Idioma'}</span>
         <select value={languagePage} onChange={(event) => setLanguagePage(event.target.value)}>
           <option value="es">Es</option>
           <option value="en">En</option>
