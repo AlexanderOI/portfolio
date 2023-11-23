@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans;display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Open+Sans:wght@500&family=Plus+Jakarta+Sans&display=swap');
 
 * {
+  /* font-family: 'Kanit', sans-serif;
+  font-family: 'Open Sans', sans-serif; */
+  font-family: 'Plus Jakarta Sans', sans-serif;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
 :root {
-  font-family: 'Fira sans', sans-serif;
-  background-color: #1a1a1a;
+  background-color: #1f2937;
   color: rgba(255, 255, 255, 0.87);
   scroll-behavior: smooth;
   text-align: center;

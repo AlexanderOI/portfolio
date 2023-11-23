@@ -3,6 +3,7 @@ import { aboutMe } from "../constants/asideLenguaje"
 import styled from "styled-components"
 import { theme } from "../assets/style/themes"
 import { GitHubIcon, LinkedinIcon } from "../assets/icons/SocialIcons"
+import { TitleStyle } from "../assets/style/css.style"
 
 interface DivProps {
   $border?: string
@@ -22,14 +23,7 @@ export const AbautMeStyle = styled.section`
 
   h2 {
     grid-area: title;
-    width: 100%;
-    text-align: center;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 15px;
-    background-color: ${theme.dark.blue};
-    border: 1px solid #e5e5e51a;
-    box-shadow: 0px 0px 20px #e5e5e52f;
+    ${TitleStyle}
   }
 
   @media (max-width: 768px) {
@@ -116,7 +110,7 @@ export function AbautMe() {
 
             <p>A philosophy that guides me is the phrase "Never stop learning." I invite you to explore my GitHub, where you will find the projects I work on. Furthermore, in the "Projects" section you will find brief explanations of each of them.</p>
 
-            <p>If you have any questions, suggestions or just want to connect, feel free to contact me via my email: <strong>alexanderoi037@gmail.com</strong> or by filling out the form in the "Contact Me" section. I look forward to hearing your ideas and working on interesting projects. Let's put our ideas into code!</p>
+            <p>If you have any questions, suggestions or just want to connect, feel free to contact me via my email: alexanderoi037@gmail.com or by filling out the form in the "Contact Me" section. I look forward to hearing your ideas and working on interesting projects. Let's put our ideas into code!</p>
 
           </>
           :
@@ -127,7 +121,7 @@ export function AbautMe() {
 
             <p>Una filosofía que me guía es la frase "Nunca dejes de aprender". Te invito a explorar mi GitHub, donde encontrarás los proyectos en los que trabajo. Además, en el apartado "Proyectos" encontrarás breves explicaciones de cada uno de ellos.</p>
 
-            <p>Si tienes alguna pregunta, sugerencia o simplemente quieres conectarte, no dudes en contactarme a través de mi correo electrónico: <strong>alexanderoi037@gmail.com</strong> o completando el formulario en la sección "Contáctame". Espero escuchar sus ideas y trabajar en proyectos interesantes. ¡Pongamos nuestras ideas en código!</p>
+            <p>Si tienes alguna pregunta, sugerencia o simplemente quieres conectarte, no dudes en contactarme a través de mi correo electrónico: alexanderoi037@gmail.com o completando el formulario en la sección "Contáctame". Espero escuchar sus ideas y trabajar en proyectos interesantes. ¡Pongamos nuestras ideas en código!</p>
           </>
         }
       </KnowMe>

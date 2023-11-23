@@ -6,9 +6,8 @@ import { Projects } from "./Projects"
 import { Contact } from "./Contact"
 import { theme } from "../assets/style/themes"
 import { AbautMe } from "../components/AbautMe"
-import { luminousBorder } from "../assets/style/css.style"
 
-import perfil from '../../public/perfil2.jpg'
+import perfil from '../assets/images/perfil.png'
 
 export const Main = styled.div`
   display: flex;
@@ -20,11 +19,13 @@ export const Main = styled.div`
 `
 
 export const Presentation = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas:
-    "profile title title"
-    "profile text text";
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+  "profile profile profile"
+  "title title title"
+  "text text text";
+  margin-top: 25px;
 
   p {
     font-size: 2em;
@@ -48,50 +49,42 @@ export const Presentation = styled.div`
   @media (max-width: 768px){
     width: 100%;
     grid-template-areas:
-    "profile title title"
+    "profile profile profile"
+    "title title title"
     "text text text";
   }
 `
 export const Profile = styled.div`
   grid-area: profile;
   position: relative;
+  margin: auto;
   max-width: 300px;
   padding: 15px;
-
-  span {
-    font-size: 2em;
-    color: ${theme.dark.blue};
-
-    @media (max-width: 768px) {
-      font-size: 1em;
-    }
-  }
 
   @media (max-width: 768px){
     display: block;
     flex-direction: row;
     max-width: 200px;
-    margin: 0;
   }
 
   img {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    ${luminousBorder};
-    border: 5px solid ${theme.dark.blue};
+    border: 2px solid ${theme.dark.blue};
 
     @media (max-width: 768px){
       flex-direction: row;
-      max-width: 80px;
-      max-height: 80px;
+      max-width: 200px;
+      max-height: 200px;
     }
   }
 `
 
 const Title = styled.div`
   grid-area: title;
-  margin: auto;
+  border-bottom: 2px solid ${theme.dark.blueWhite};
+  margin-top: 30px;
 
   h1 {
     padding-bottom: 15px;
@@ -114,6 +107,7 @@ const Title = styled.div`
 
 const Text = styled.div`
   grid-area: text;
+  margin-top: 30px;
   
   p {
     text-align: center;
@@ -124,23 +118,16 @@ const Text = styled.div`
 export function Home() {
   const { languagePage } = useLanguageContext()
 
-  // const perfil2 = 'https://avatars.githubusercontent.com/u/112521170?s=400&u=6b8d0fde5dc60c33f02e4d2772708bdf5a37196c&v=4'
-
   return (
     <Main>
       <Presentation>
         <Profile>
-          <img src={perfil} alt="Foto de perfil" />
-          <span>{languagePage === 'en'
-            ? 'Programming'
-            : 'Programando'}
-            ...
-          </span>
+          <img id="title" src={perfil} alt="Foto de perfil" />
         </Profile>
         <Title>
           {languagePage === 'en'
-            ? <h1 id="title">Junior Developer AlexanderOI</h1>
-            : <h1 id="title">Desarrollador Junior AlexanderOI</h1>
+            ? <h1 >{"< Jr. Developer AlexanderOI/>"}</h1>
+            : <h1 >{"< Desarrollador Jr. AlexanderOI />"}</h1>
           }
         </Title>
         <Text>

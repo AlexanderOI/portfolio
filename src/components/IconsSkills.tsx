@@ -1,23 +1,27 @@
 import { styled } from 'styled-components';
-import { CSSIcon, GitHubIcon, GitIcon, HTMLIcon, JavaScriptIcon, PythonIcon, ReactIcon, SQLiteIcon, TypeScriptIcon } from '../assets/icons/SkillsIcons';
+import { CSSIcon, ExpressIcon, GitHubIcon, GitIcon, HTMLIcon, JavaScriptIcon, NodeIcon, PythonIcon, QtDesignerIcon, ReactIcon, SQLiteIcon, TypeScriptIcon } from '../assets/icons/SkillsIcons';
 import { theme } from '../assets/style/themes';
+import { TitleStyle } from '../assets/style/css.style';
 
 export const SectionSkills = styled.section`
+  display: flex;
+  flex-direction: column;
   padding-top: 20px;
-  background-color: ${theme.dark.blue};
-  border: 1px solid #e5e5e51a;
-  box-shadow: 0px 0px 20px #e5e5e52f;
-  margin: 60px 0px 100px 0px;
+  /* border: 3px solid #e5e5e51a;
+  border-radius: 15px; */
+  margin: 60px 0px 60px 0px;
   
   h2 {
+    margin: auto;
     color: ${theme.dark.withe};
     font-size: 2em;
-    margin-bottom: 15px;
+    ${TitleStyle}
+    margin-bottom: 50px;
   }
 
   div {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-auto-rows: minmax(50px, auto);
     justify-content: center;
     place-items: center;
@@ -31,7 +35,6 @@ export const SectionSkills = styled.section`
 
     div {
       grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      grid-auto-rows: minmax(50px, auto);
     }
   }
 `
@@ -43,44 +46,24 @@ export const Icon = styled.div`
 
   span {
     font-size: 1em;
-    margin-top: 10px;
     width: 110px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 2px solid #95b8cf;
-  }
-
-  @media (max-width: 768px){
-      width: 80px;
-      font-size: 0.8em;
   }
 
   svg {
     width: 60px;
     height: 60px;
-    transition: transform 0.2s ease-in-out;
-    cursor: pointer;
-
-    @media (max-width: 1460px){
-      width: 50px;
-      height: 50px;
-    }
-
-    @media (max-width: 1110px){
-      width: 40px;
-      height: 40px;
-    }
+    transition: all 0.2s ease-in-out;
   
-    @media (max-width: 768px){
-      width: 30px;
-      height: 30px;
-    }
+    /* @media (max-width: 768px){
+      width: 60px;
+      height: 60px;
+    } */
 
     &:hover {
     transform: scale(1.3);
   }
   }
-`;
+`
 
 export function IconsSkills() {
   return (
@@ -93,7 +76,10 @@ export function IconsSkills() {
         <Icon><HTMLIcon /><span>HTML</span></Icon>
         <Icon><CSSIcon /><span>CSS</span></Icon>
         <Icon><ReactIcon /><span>React</span></Icon>
+        <Icon><NodeIcon /><span>Node</span></Icon>
+        <Icon><ExpressIcon /><span>Express</span></Icon>
         <Icon><SQLiteIcon /><span>SQLite</span></Icon>
+        <Icon><QtDesignerIcon /><span>QtDesigner</span></Icon>
         <Icon><GitIcon /><span>Git</span></Icon>
         <Icon><GitHubIcon /><span>GitHub</span></Icon>
       </div>

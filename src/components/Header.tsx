@@ -1,24 +1,20 @@
 import { useNavigate } from "react-router-dom"
 import { GitHubIcon, LinkedinIcon } from "../assets/icons/SocialIcons"
-import { theme } from "../assets/style/themes"
 import { useLanguageContext } from "../context/LanguageProveder"
 import styled from "styled-components"
+import { between_flex_colum, center_flex } from "../assets/style/css.style"
 
 export const HeaderMain = styled.header`
-  display: flex;
+  ${center_flex}
   position: fixed;
-  background-color: ${theme.dark.black}ea;
-  align-items: center;
-  justify-content: space-between;
+  background-color: #1f2937ea;
   border-bottom: 2px solid #e5e5e51a;
   z-index: 40;
   width: 100%;
   height: 90px;
 
   div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    ${center_flex}
   }
 
   span {
@@ -30,10 +26,7 @@ export const HeaderMain = styled.header`
     font-size: 1em;
     margin-right: 10px;
     border: none;
-
-    &:focus {
-      outline: none;
-    }
+    outline: none;
   }
 
   i {
@@ -53,8 +46,7 @@ export const HeaderMain = styled.header`
 
   @media(max-width: 768px) {
     height: 85px;
-    flex-direction: column;
-    justify-content: space-between;
+    ${between_flex_colum}
     padding: 10px 10px 0px 0px;
   }
 `
@@ -62,7 +54,7 @@ export const HeaderMain = styled.header`
 export const NavLinkStyle = styled.a`
   text-decoration: none;
   color: #fff;
-  margin: 10px 10px 10px 10px;
+  margin: 10px;
   font-weight: 500;
   font-size: 1em;
   position: relative;
@@ -113,7 +105,6 @@ export function Header() {
   const navigate = useNavigate()
 
   let path = window.location.pathname
-
 
   const scrollToSection = (id: string) => {
     if (path.length > 2) {

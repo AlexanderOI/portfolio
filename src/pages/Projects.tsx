@@ -1,4 +1,5 @@
-import { luminousBorder } from "../assets/style/css.style"
+import { EyesIcon } from "../assets/icons/Icons"
+import { TitleStyle } from "../assets/style/css.style"
 import { theme } from "../assets/style/themes"
 import { projectsInfo } from "../constants/PagesProjects"
 import { useLanguageContext } from "../context/LanguageProveder"
@@ -8,14 +9,10 @@ import styled from "styled-components"
 const ContainerProyects = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   h2 {
-    width: 100%;
-    text-align: center;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 15px;
-    ${luminousBorder};
+    ${TitleStyle}
   }
 `
 
@@ -82,12 +79,20 @@ const SkillsUsed = styled.div`
   padding: 15px;
   bottom: 0px;
 
-  span {
-    font-size: 0.8em;
-    background-color: ${theme.dark.blue};
-    border: 1px solid ${theme.dark.withe};
-    border-radius: 3px;
-    padding: 5px 5px 5px 5px;
+  i {
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+`
+
+const View = styled.div`
+  position: absolute;
+  margin: 0px 0px 5px 5px;
+
+  svg {
+    fill: ${theme.dark.blue};
   }
 `
 
@@ -95,6 +100,7 @@ export const NavLinkStyled = styled(NavLink)`
   text-decoration: none;
   color: rgba(255, 255, 255, 0.87);
 `
+
 export function Projects() {
   const { languagePage } = useLanguageContext()
 
@@ -105,6 +111,7 @@ export function Projects() {
         {projectsInfo[languagePage].map(info => (
           <li key={info.name}>
             <NavLinkStyled to={`/projects/${info.name.replace(' ', '-').toLocaleLowerCase()}`}>
+              <View><EyesIcon /></View>
               <ImageDemonstration>
                 <img src={info.image} alt={info.description} />
               </ImageDemonstration>
@@ -112,8 +119,8 @@ export function Projects() {
                 <h4>{info.name}</h4>
                 <p>{info.description}</p>
                 <SkillsUsed>
-                  {info.skills.map(skill => (
-                    <span key={skill}>{skill}</span>
+                  {info.skills.map((skill, index) => (
+                    <i key={index}>{skill}</i>
                   ))}
                 </SkillsUsed>
               </section>

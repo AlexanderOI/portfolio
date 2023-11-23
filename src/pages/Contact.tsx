@@ -4,7 +4,7 @@ import { inputLanguage } from "../constants/inputLenguaje";
 import { formItIsValid, languageMessages } from "../constants/ContactLenguage";
 import { styled } from "styled-components"
 import { theme } from "../assets/style/themes";
-import { luminousBorder } from "../assets/style/css.style";
+import { TitleStyle } from "../assets/style/css.style";
 
 export const DivContact = styled.div`
   display: flex;
@@ -22,12 +22,7 @@ export const DivContact = styled.div`
 
   h2 {
     display: block;
-    width: 100%;
-    text-align: center;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 15px;
-    ${luminousBorder};
+    ${TitleStyle}
   }
 
   section {
@@ -75,9 +70,12 @@ export const DivContact = styled.div`
     border-radius: 5px;
     cursor: pointer;
     background-color: ${theme.dark.blue};
+    transition: transform 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+
 
     &:hover, &:active {
-     background-color: ${theme.dark.blue}a1;
+      background-color: #248cd1a1;
     }
   }
 
