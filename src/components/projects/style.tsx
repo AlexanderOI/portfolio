@@ -69,7 +69,7 @@ export const NavBackGit = styled.nav`
     display: flex;
     align-items: center;
     background-color: ${theme.dark.blue};
-    color: ${theme.dark.withe};
+    color: ${theme.dark.white};
     text-decoration: none;
     border-radius: 10px;
     margin-top: 15px;
@@ -149,7 +149,7 @@ export const DivEnlarge = styled.div`
     display: block;
     text-align: center;
     line-height: 40px;
-    color: ${theme.dark.withe};
+    color: ${theme.dark.white};
     width: 200px;
     height: 40px;
     margin: auto;

@@ -13,7 +13,7 @@ export const SectionSkills = styled.section`
   
   h2 {
     margin: auto;
-    color: ${theme.dark.withe};
+    color: ${theme.dark.white};
     font-size: 2em;
     ${TitleStyle}
     margin-bottom: 50px;

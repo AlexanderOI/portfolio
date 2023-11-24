@@ -24,6 +24,8 @@ export const AbautMeStyle = styled.section`
   h2 {
     grid-area: title;
     ${TitleStyle}
+    margin: auto;
+    margin-bottom: 15px;
   }
 
   @media (max-width: 768px) {
@@ -56,12 +58,12 @@ export const Me = styled.div<DivProps>`
 
   div {
     background-color: ${theme.dark.blue};
-    border: 1px solid ${theme.dark.withe};
+    border: 1px solid ${theme.dark.white};
     border-radius: 10px;
   }
 
   p {
-    color: ${theme.dark.withe};
+    color: ${theme.dark.white};
     text-align: center;
     padding: 15px;
   }
@@ -69,7 +71,7 @@ export const Me = styled.div<DivProps>`
   a {
     display: flex;
     background-color: ${theme.dark.blue};
-    color: ${theme.dark.withe};
+    color: ${theme.dark.white};
     justify-content: center;
     align-items: center;
     text-decoration: none;
@@ -78,7 +80,7 @@ export const Me = styled.div<DivProps>`
     padding: 15px;
     margin: 30px 0 0 0;
     transition: transform 0.2s ease-in-out;
-    border: 1px solid ${theme.dark.withe};
+    border: 1px solid ${theme.dark.white};
 
     &:hover {
       transform: scale(1.1);
@@ -121,7 +123,7 @@ export function AbautMe() {
 
             <p>Una filosofía que me guía es la frase "Nunca dejes de aprender". Te invito a explorar mi GitHub, donde encontrarás los proyectos en los que trabajo. Además, en el apartado "Proyectos" encontrarás breves explicaciones de cada uno de ellos.</p>
 
-            <p>Si tienes alguna pregunta, sugerencia o simplemente quieres conectarte, no dudes en contactarme a través de mi correo electrónico: alexanderoi037@gmail.com o completando el formulario en la sección "Contáctame". Espero escuchar sus ideas y trabajar en proyectos interesantes. ¡Pongamos nuestras ideas en código!</p>
+            <p>Si tienes alguna pregunta, sugerencia o simplemente quieres conectarte, no dudes en escribirme a través de mi correo electrónico: alexanderoi037@gmail.com. Espero escuchar sus ideas y trabajar en proyectos interesantes. ¡Pongamos nuestras ideas en código!</p>
           </>
         }
       </KnowMe>
