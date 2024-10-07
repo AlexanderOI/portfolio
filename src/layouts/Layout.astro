@@ -1,0 +1,182 @@
+---
+import BackgroundCanvas from "../components/ui/BackgroundCanvas.astro";
+import GitHubIcon from "../icons/GitHubIcon.astro";
+import LinkedinIcon from "../icons/LinkedinIcon.astro";
+
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.webp" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title ? `${title}- Alexander OI` : "Alexander OI"}</title>
+  </head>
+  <body>
+    <BackgroundCanvas />
+    <header
+      class="flex justify-between bg-dark-gray rounded-xl px-6 py-3 fixed-center z-50 max-md:flex-col max-md:justify-center max-md:items-center"
+    >
+      <div class="flex">
+        <div class="font-bold text-3xl mr-7 max-md:hidden">
+          <h2 class="text-gradient">{"< Alexander - OI />"}</h2>
+        </div>
+
+        <div class="flex items-center gap-6 text-nowrap">
+          <span>/ Inicio</span>
+          <span>/ Proyectos</span>
+          <span>/ Contacto</span>
+        </div>
+      </div>
+
+      <div class="w-auto flex items-center gap-3 svg-icons max-md:mt-2">
+        <i>
+          <GitHubIcon />
+        </i>
+
+        <i>
+          <LinkedinIcon />
+        </i>
+      </div>
+    </header>
+
+    <slot />
+  </body>
+</html>
+<style is:global>
+  :root {
+    --accent: 136, 58, 234;
+    --accent-light: 224, 204, 250;
+    --accent-dark: 49, 10, 101;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-light)) 30%,
+      white 60%
+    );
+  }
+
+  html {
+    font-family: system-ui, sans-serif;
+    background: #020202;
+  }
+
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+
+  /* src/styles/global.css */
+  body {
+    font-family: "Roboto", sans-serif;
+    /* background-color: #020202;
+    background-image: url("/line.svg");
+    background-repeat: repeat;
+    background-size: 150px 150px; */
+    min-height: 100vh;
+    padding-top: 25px;
+    /* background-repeat: repeat;
+    animation: bg_loop 1000s linear infinite; */
+  }
+
+  header {
+    width: 90%;
+    color: #fff;
+  }
+
+  main {
+    padding: 1rem;
+    width: 1000px;
+    max-width: calc(100% - 2rem);
+    color: #fff;
+    color: fff;
+    line-height: 1.6;
+  }
+
+  @keyframes bg_loop {
+    0% {
+      background-position: 0 0;
+      background-position-x: 0px;
+      background-position-y: 0px;
+    }
+    100% {
+      background-position: 1000% 100vh;
+      background-position-x: 1000%;
+      background-position-y: 2000%;
+    }
+  }
+
+  .animation-border {
+    background-color: #fff7;
+    border-radius: 25%;
+    height: 5px;
+    position: absolute;
+    offset-path: border-box;
+    offset-anchor: 100% 50%;
+    animation: rounded 6s linear infinite;
+  }
+
+  @keyframes rounded {
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin-infinite {
+    animation: spin 5s linear infinite; /* Cambia la duración para ajustar la velocidad */
+  }
+
+  .fixed-center {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .svg-icons i {
+    display: flex;
+    width: 30px;
+    height: 30px;
+  }
+
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(to right top, rgb(205, 214, 228), rgb(29, 7, 226)) text;
+    background-size: 400%;
+    background-position: 0%;
+  }
+
+  .items-repeat {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    width: 100%;
+    gap: 20px;
+    list-style: none;
+  }
+</style>

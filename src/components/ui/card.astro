@@ -1,0 +1,8 @@
+---
+const { class: customClasses } = Astro.props;
+---
+
+<div class={`bg-dark-gray relative overflow-hidden p-5 rounded-2xl ${customClasses}`}>
+  <div class="animation-border w-7"></div>
+  <slot />
+</div>
