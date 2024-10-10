@@ -1,0 +1,89 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProjectsCards from "../../components/ProjectsCards.astro";
+import Card from "../../components/ui/card.astro";
+import { projects } from "../../content/projects/projects";
+
+const filterIcons = Array.from(new Set(projects.flatMap((project) => project.technologies)));
+---
+
+<Layout>
+  <div class="my-14">
+    <h1 class="text-gradient text-center font-bold text-3xl mb-5 mt-6">Proyectos</h1>
+
+    <Card class="w-8/12 mx-auto">
+      <div class="text-center">
+        <p>Aquí encontrarás algunos de los proyectos en los que he trabajado.</p>
+      </div>
+    </Card>
+
+    <h2 class="text-2xl font-bold text-center mb-3 mt-10">Filtra por tecnología</h2>
+    <div class="flex justify-center flex-wrap gap-2 mb-10 m-auto">
+      {
+        filterIcons.map(({ Icon, name }) => (
+          <div
+            class="filter flex items-center bg-dark-gray relative overflow-hidden p-2 rounded-md cursor-pointer"
+            data-name={name}
+          >
+            <i class="flex w-5 h-5 mr-2">
+              <Icon />
+            </i>
+
+            <p class="text-xs">{name}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="min-h-[29rem]">
+      <ProjectsCards projects={projects} />
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const icons = document.querySelectorAll(".filter");
+
+  const iconNames: string[] = [];
+
+  icons.forEach((icon) => {
+    icon.addEventListener("click", () => {
+      let name = icon.getAttribute("data-name");
+      let isActive = icon.classList.contains("active");
+
+      if (isActive && name) {
+        icon.classList.remove("active");
+        iconNames.splice(iconNames.indexOf(name), 1);
+      } else if (name) {
+        icon.classList.add("active");
+        iconNames.push(name);
+      }
+
+      filterProjects();
+    });
+  });
+
+  function filterProjects() {
+    let projectContainer = document.querySelectorAll(".project-container");
+
+    projectContainer.forEach((project) => {
+      let projectIcons = project.getAttribute("data-icons")?.split(",") || [];
+
+      if (iconNames.length === 0) {
+        project.classList.remove("hidden");
+      } else {
+        if (iconNames.every((elem) => projectIcons.includes(elem))) {
+          project.classList.remove("hidden");
+        } else {
+          project.classList.add("hidden");
+        }
+      }
+    });
+  }
+</script>
+
+<style>
+  .active {
+    outline: 2px solid #bbbbbb;
+  }
+</style>

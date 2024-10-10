@@ -1,16 +1,18 @@
-import TypeScriptIcon from "../icons/skills/TypeScriptIcon.astro";
-import ReactIcon from "../icons/skills/ReactIcon.astro";
-import PythonIcon from "../icons/skills/PythonIcon.astro";
-import Pyqt5Icon from "../icons/skills/Pyqt5Icon.astro";
-import NodeIcon from "../icons/skills/NodeIcon.astro";
-import ExpressIcon from "../icons/skills/ExpressIcon.astro";
-import DjangoIcon from "../icons/skills/DjangoIcon.astro";
-import SQLiteIcon from "../icons/skills/SQLiteIcon.astro";
-import JavaScriptIcon from "../icons/skills/JavaScriptIcon.astro";
-import HTMLIcon from "../icons/skills/HTMLIcon.astro";
-import CSSIcon from "../icons/skills/CSSIcon.astro";
-import GitHubIcon from "../icons/skills/GitHubIcon.astro";
-import GitIcon from "../icons/skills/GitIcon.astro";
+import TypeScriptIcon from "../icons/technologies/TypeScriptIcon.astro";
+import ReactIcon from "../icons/technologies/ReactIcon.astro";
+import PythonIcon from "../icons/technologies/PythonIcon.astro";
+import Pyqt5Icon from "../icons/technologies/Pyqt5Icon.astro";
+import NodeIcon from "../icons/technologies/NodeIcon.astro";
+import ExpressIcon from "../icons/technologies/ExpressIcon.astro";
+import DjangoIcon from "../icons/technologies/DjangoIcon.astro";
+import SQLiteIcon from "../icons/technologies/SQLiteIcon.astro";
+import JavaScriptIcon from "../icons/technologies/JavaScriptIcon.astro";
+import HTMLIcon from "../icons/technologies/HTMLIcon.astro";
+import CSSIcon from "../icons/technologies/CSSIcon.astro";
+import GitHubIcon from "../icons/technologies/GitHubIcon.astro";
+import GitIcon from "../icons/technologies/GitIcon.astro";
+import QtDesignerIcon from "../icons/technologies/QtDesignerIcon.astro";
+import StyledComponentsIcon from "../icons/technologies/StyledComponentsIcon.astro";
 
 export const Icons = {
   TypeScriptIcon: {
@@ -64,5 +66,13 @@ export const Icons = {
   GitIcon: {
     name: "Git",
     Icon: GitIcon,
+  },
+  QtDesignerIcon: {
+    name: "Qt Designer",
+    Icon: QtDesignerIcon,
+  },
+  StyledComponentsIcon: {
+    name: "Styled Components",
+    Icon: StyledComponentsIcon,
   },
 };

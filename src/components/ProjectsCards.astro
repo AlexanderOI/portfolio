@@ -1,0 +1,45 @@
+---
+import { type Project } from "../content/projects/projects";
+import Card from "./ui/card.astro";
+import IconSkill from "./ui/IconSkill.astro";
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<div class="items-repeat mb-20">
+  {
+    projects.map((project) => (
+      <Card
+        class="h-[26rem] p-0 project-container"
+        icons={project.technologies.map(({ name }) => name).join(",")}
+      >
+        <a href={`/projects/${project.id}`}>
+          <div class="h-48 w-full ">
+            {/* <img class="object-cover h-full w-full" src={project.thumbnail} alt={project.name} /> */}
+          </div>
+
+          <div class="w-full h-full p-3">
+            <h2
+              class="text-center font-bold text-xl mb-3"
+              transition:name={`title-${project.name}`}
+            >
+              {project.name}
+            </h2>
+
+            <p class="text-center">{project.summary}</p>
+
+            <div class="flex justify-center flex-wrap gap-1 mt-2">
+              {project.technologies.map(({ Icon, name }) => (
+                <IconSkill Icon={Icon} name={name} />
+              ))}
+            </div>
+          </div>
+        </a>
+      </Card>
+    ))
+  }
+</div>

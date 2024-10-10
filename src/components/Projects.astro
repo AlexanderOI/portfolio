@@ -1,34 +1,8 @@
 ---
-import Card from "./ui/card.astro";
-import { projects } from "../data/projects";
+import { projects } from "../content/projects/projects";
+import ProjectsCards from "./ProjectsCards.astro";
 ---
 
-<h2 class="text-center text-3xl font-bold mb-6">Projectos Personales</h2>
+<h2 class="text-center text-3xl font-bold mb-6">Proyectos</h2>
 
-<div class="items-repeat mb-20">
-  {
-    projects["en"].map((project) => (
-      <Card class="h-96 p-0">
-        <div class="h-48 w-full border-b border-gray-100" />
-
-        <div class="w-full h-full p-3">
-          <h2 class="text-center font-bold text-xl mb-3">{project.name}</h2>
-
-          <p class="text-center">{project.description}</p>
-
-          <div class="flex justify-center flex-wrap gap-2 mt-2">
-            {project.skills.map(({ Icon, name }) => (
-              <div class="flex items-center bg-dark-gray relative overflow-hidden p-2 rounded-md">
-                <i class="flex w-5 h-5 mr-2">
-                  <Icon />
-                </i>
-
-                <p class="text-xs">{name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Card>
-    ))
-  }
-</div>
+<ProjectsCards projects={projects} />

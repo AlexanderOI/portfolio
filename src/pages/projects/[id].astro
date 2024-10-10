@@ -1,0 +1,35 @@
+---
+import { projects } from "../../content/projects/projects";
+import Projects from "../../content/projects/Projects.astro";
+import Layout from "../../layouts/Layout.astro";
+
+export const getStaticPaths = () => {
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+};
+
+const { project } = Astro.props;
+---
+
+<Layout title={project.name}>
+  <Projects project={project} />
+</Layout>
+
+<style>
+  .svg-icons i {
+    display: flex;
+    width: 30px;
+    height: 30px;
+  }
+
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(to right top, rgb(205, 214, 228), rgb(29, 7, 226)) text;
+    background-size: 400%;
+    background-position: 0%;
+  }
+</style>

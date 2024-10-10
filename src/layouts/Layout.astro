@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import BackgroundCanvas from "../components/ui/BackgroundCanvas.astro";
 import GitHubIcon from "../icons/GitHubIcon.astro";
 import LinkedinIcon from "../icons/LinkedinIcon.astro";
@@ -18,7 +19,8 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.webp" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title ? `${title}- Alexander OI` : "Alexander OI"}</title>
+    <title>{title ? `${title} - Alexander OI` : "Alexander OI"}</title>
+    <ClientRouter />
   </head>
   <body>
     <BackgroundCanvas />
@@ -27,14 +29,15 @@ const { title } = Astro.props;
     >
       <div class="flex">
         <div class="font-bold text-3xl mr-7 max-md:hidden">
-          <h2 class="text-gradient">{"< Alexander - OI />"}</h2>
+          <a href="/">
+            <h2 class="text-gradient">{"< Alexander - OI />"}</h2>
+          </a>
         </div>
 
-        <div class="flex items-center gap-6 text-nowrap">
-          <span>/ Inicio</span>
-          <span>/ Proyectos</span>
-          <span>/ Contacto</span>
-        </div>
+        <nav class="flex items-center gap-6 text-nowrap">
+          <a href="/">/ Inicio</a>
+          <a href="/projects">/ Proyectos</a>
+        </nav>
       </div>
 
       <div class="w-auto flex items-center gap-3 svg-icons max-md:mt-2">
@@ -48,7 +51,9 @@ const { title } = Astro.props;
       </div>
     </header>
 
-    <slot />
+    <main class="mx-auto">
+      <slot />
+    </main>
   </body>
 </html>
 <style is:global>

@@ -1,0 +1,16 @@
+---
+interface Props {
+  name: string;
+  Icon: any;
+}
+
+const { name, Icon } = Astro.props;
+---
+
+<div class="flex items-center bg-dark-gray relative overflow-hidden p-2 rounded-md">
+  <i class="flex w-4 h-4 mr-2">
+    <Icon />
+  </i>
+
+  <p class="text-[10px]">{name}</p>
+</div>

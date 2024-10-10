@@ -1,29 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import AbautMe from "../components/AbautMe.astro";
+import AboutMe from "../components/AboutMe.astro";
 import Projects from "../components/Projects.astro";
 import Skills from "../components/Skills.astro";
 import Experience from "../components/Experience.astro";
 ---
 
 <Layout>
-  <main class="mx-auto">
-    <div class="text-center my-24">
-      <img class="w-40 mx-auto mb-10 rounded-full" src="/favicon.webp" />
+  <div class="text-center my-24">
+    <img class="w-40 mx-auto mb-10 rounded-full" src="/favicon.webp" />
 
-      <h1 class="text-5xl text-sky-200">¡Hola!, Soy Alexander OI</h1>
+    <h1 class="text-5xl text-sky-200">¡Hola!, Soy Alexander OI</h1>
 
-      <h2 class="mt-5 text-2xl">Desarrollador Web</h2>
+    <h2 class="mt-5 text-2xl">Desarrollador Web</h2>
 
-      <h2 class="mt-5 text-2xl">Estudiante de Ingeniería en Informática.</h2>
-    </div>
+    <h2 class="mt-5 text-2xl">Estudiante de Ingeniería en Informática.</h2>
+  </div>
 
-    <AbautMe />
+  <AboutMe />
 
-    <Experience />
+  <Experience />
 
-    <Skills />
+  <Skills />
 
-    <Projects />
-  </main>
+  <Projects />
 </Layout>
