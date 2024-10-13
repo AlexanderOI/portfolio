@@ -1,7 +1,9 @@
 ---
-import { projects } from "../../content/projects/projects";
-import Projects from "../../content/projects/Projects.astro";
+import { projects } from "../../data/projects";
 import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/ui/card.astro";
+import GitHubIcon from "../../icons/GitHubIcon.astro";
+import XIcon from "../../icons/common/XIcon.astro";
 
 export const getStaticPaths = () => {
   return projects.map((project) => ({
@@ -14,8 +16,137 @@ const { project } = Astro.props;
 ---
 
 <Layout title={project.name}>
-  <Projects project={project} />
+  <div class="my-14">
+    <div>
+      <div class="mb-10">
+        <h1
+          class="text-gradient text-center font-bold text-3xl mb-5"
+          transition:name={`title-${project.name}`}
+        >
+          {project.name}
+        </h1>
+
+        <div class="flex justify-center gap-x-5">
+          <a
+            href={project.githubLink}
+            target="_blank"
+            class="inline-flex items-center gap-x-4 bg-dark-gray rounded-md py-2 px-4"
+          >
+            <i class="w-6">
+              <GitHubIcon />
+            </i>
+            Ver proyecto en GitHub
+          </a>
+        </div>
+      </div>
+
+      <Card class="mb-10">
+        <div>
+          <p>{project.description}</p>
+        </div>
+      </Card>
+
+      <div class="flex justify-between flex-wrap mb-10 gap-5">
+        {
+          project.technologies.map(({ Icon, name }) => (
+            <div class="flex items-center bg-dark-gray relative overflow-hidden p-2 rounded-md">
+              <i class="flex w-5 h-5 mr-2">
+                <Icon />
+              </i>
+
+              <p class="text-xs">{name}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- <Card class="mb-10">
+        <div class="space-y-1">
+          {
+            project.features.map((feature) => (
+              <p>
+                <b>{feature.split(":")[0]}:</b> {feature.split(":")[1]}
+              </p>
+            ))
+          }
+        </div>
+      </Card> -->
+
+      <div>
+        <div class="grid grid-cols-2 gap-5 max-md:grid-cols-1">
+          {
+            project.images.map((img) => (
+              <Card border={false}>
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  class="cursor-pointer gallery-image"
+                  data-src={img.src}
+                />
+              </Card>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal" class="hidden inset-0 bg-black bg-opacity-75 items-center justify-center z-50">
+    <div class="flex justify-center relative">
+      <button
+        id="close-modal"
+        class="absolute top-2 right-2 text-2xl bg-neutral-500 w-10 h-10 rounded-md shadow-lg p-1"
+      >
+        <XIcon />
+      </button>
+      <img id="modal-image" src="" alt="-" class="max-w-full max-h-full" />
+    </div>
+  </div>
 </Layout>
+
+<script>
+  const renderModal = () => {
+    const images = document.querySelectorAll(".gallery-image") as NodeListOf<HTMLImageElement>;
+    const modal = document.getElementById("modal");
+    const modalImage = document.getElementById("modal-image") as HTMLImageElement;
+    const closeModalButton = document.getElementById("close-modal");
+
+    if (!images || !modal || !modalImage || !closeModalButton) {
+      return;
+    }
+
+    const openModal = (imgSrc: string) => {
+      modalImage.src = imgSrc;
+      modal.classList.remove("hidden");
+      modal.classList.add("fixed");
+    };
+
+    const closeModal = () => {
+      modal.classList.add("hidden");
+      modal.classList.remove("fixed");
+    };
+
+    images.forEach((image) => {
+      image.addEventListener("click", (event) => {
+        if (!event.target) {
+          return;
+        }
+        const imgSrc = (event.target as HTMLImageElement).getAttribute("data-src");
+        openModal(imgSrc || "");
+      });
+    });
+
+    closeModalButton.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+  };
+
+  document.addEventListener("astro:page-load", renderModal);
+</script>
 
 <style>
   .svg-icons i {
@@ -31,5 +162,32 @@ const { project } = Astro.props;
     background: linear-gradient(to right top, rgb(205, 214, 228), rgb(29, 7, 226)) text;
     background-size: 400%;
     background-position: 0%;
+  }
+
+  .fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+  }
+
+  .bg-opacity-75 {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  button {
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    color: #ccc;
   }
 </style>

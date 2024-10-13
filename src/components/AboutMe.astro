@@ -1,50 +1,39 @@
 ---
 import Card from "./ui/card.astro";
+import TitleGradient from "./ui/TitleGradient.astro";
 ---
 
+<TitleGradient>Sobre mi</TitleGradient>
+
 <div class="flex justify-between mb-5 text-xs">
-  <Card class="py-2 px-4 rounded-md">
+  <Card class="py-2 px-4 rounded-md" border={false}>
     <span> 21 años </span>
   </Card>
 
-  <Card class="py-2 px-4 rounded-md">
+  <Card class="py-2 px-4 rounded-md" border={false}>
     <pre>(⊙_⊙)    (- ᴗ -)    (≧◡≦)</pre>
   </Card>
 
-  <Card class="py-2 px-4 rounded-md">
+  <Card class="py-2 px-4 rounded-md" border={false}>
     <span> Paraguay </span>
   </Card>
 </div>
 
 <Card class="flex flex-col gap-3 mb-20">
-  <h2 class="text-center text-3xl font-bold">Sobre mi</h2>
-  <p class="text-gray-300">
-    ¡Hola! Me llamo <b>Victor Alexander Ortiz Ibañez</b>, un apasionado <b>Desarrollador Web</b> que
-    encuentra su principal fuente de inspiración en el mundo de la tecnología y la programación. Actualmente
-    soy estudiante de <b>Ingeniería en Informática</b> en la <b
-      >Universidad del Cono Sur de las Américas</b
-    >.
+  <p>
+    ¡Hola! Soy Victor Alexander Ortiz Ibañez, Desarrollador Web apasionado por la tecnología y la
+    programación.
   </p>
 
-  <p class="text-gray-300">
-    Estoy entusiasmado con el desarrollo <b>frontend con React</b> y el desarrollo <b
-      >backend con Node</b
-    >. Siempre estoy dispuesto a explorar <b>nuevas tecnologías</b> y aceptar <b>desafíos</b> relacionados
-    con el
-    <b> desarrollo de software</b>.
+  <p>
+    Me encanta el desarrollo frontend con React y backend con Node. Siempre abierto a nuevos retos y
+    aprendizajes en el desarrollo de software.
   </p>
 
-  <p class="text-gray-300">
-    Una filosofía que me guía es la frase "<b>Nunca dejes de aprender</b>". Te invito a explorar mi
-    <b> GitHub</b>, donde encontrarás los <b>proyectos</b> en los que trabajo. Además, en el apartado
-    "<b>Proyectos</b>" encontrarás breves explicaciones de cada uno de ellos.
-  </p>
-
-  <p class="text-gray-300">
-    Si tienes alguna pregunta, sugerencia o simplemente quieres conectarte, no dudes en escribirme a
-    través de mi correo electrónico: <b>alexanderoi037@gmail.com</b>. Espero escuchar sus
-    <b>ideas</b> y trabajar en <b>proyectos interesantes</b>. ¡Pongamos nuestras <b
-      >ideas en código</b
-    >!
+  <p>
+    Mi lema: "Nunca dejes de aprender". Te invito a explorar mis proyectos en GitHub y a contactar
+    si tienes alguna duda o idea para colaborar. Escríbeme a <a class="text-gradient"
+      >alexanderoi037@gmail.com</a
+    >. ¡Hagamos realidad las ideas en código!
   </p>
 </Card>

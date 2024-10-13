@@ -30,7 +30,7 @@ const { title } = Astro.props;
       <div class="flex">
         <div class="font-bold text-3xl mr-7 max-md:hidden">
           <a href="/">
-            <h2 class="text-gradient">{"< Alexander - OI />"}</h2>
+            <h2 class="text-gradient">{"<Alexander - OI/>"}</h2>
           </a>
         </div>
 
@@ -57,6 +57,17 @@ const { title } = Astro.props;
   </body>
 </html>
 <style is:global>
+  @font-face {
+    font-family: "Manrope";
+    src: url("/fonts/Manrope-Medium.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  * {
+    word-spacing: 0.1em;
+  }
+
   :root {
     --accent: 136, 58, 234;
     --accent-light: 224, 204, 250;
@@ -70,7 +81,7 @@ const { title } = Astro.props;
   }
 
   html {
-    font-family: system-ui, sans-serif;
+    font-family: "Manrope", system-ui, sans-serif;
     background: #020202;
   }
 
@@ -86,9 +97,8 @@ const { title } = Astro.props;
       monospace;
   }
 
-  /* src/styles/global.css */
   body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Manrope", system-ui, sans-serif;
     /* background-color: #020202;
     background-image: url("/line.svg");
     background-repeat: repeat;
@@ -106,7 +116,7 @@ const { title } = Astro.props;
 
   main {
     padding: 1rem;
-    width: 1000px;
+    width: 900px;
     max-width: calc(100% - 2rem);
     color: #fff;
     color: fff;
@@ -152,7 +162,7 @@ const { title } = Astro.props;
   }
 
   .animate-spin-infinite {
-    animation: spin 5s linear infinite; /* Cambia la duración para ajustar la velocidad */
+    animation: spin 5s linear infinite;
   }
 
   .fixed-center {
@@ -179,7 +189,7 @@ const { title } = Astro.props;
 
   .items-repeat {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     width: 100%;
     gap: 20px;
     list-style: none;

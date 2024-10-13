@@ -2,15 +2,17 @@
 interface Props {
   name: string;
   Icon: any;
+  iconSize?: string;
+  textSize?: string;
 }
 
-const { name, Icon } = Astro.props;
+const { name, Icon, iconSize, textSize } = Astro.props;
 ---
 
 <div class="flex items-center bg-dark-gray relative overflow-hidden p-2 rounded-md">
-  <i class="flex w-4 h-4 mr-2">
+  <i class={`flex ${iconSize || "w-4 h-4"} mr-2`}>
     <Icon />
   </i>
 
-  <p class="text-[10px]">{name}</p>
+  <p class={`text-${textSize || "[10px]"}`}>{name}</p>
 </div>

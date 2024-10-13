@@ -2,9 +2,11 @@
 import Layout from "../../layouts/Layout.astro";
 import ProjectsCards from "../../components/ProjectsCards.astro";
 import Card from "../../components/ui/card.astro";
-import { projects } from "../../content/projects/projects";
+import { projects } from "../../data/projects";
 
-const filterIcons = Array.from(new Set(projects.flatMap((project) => project.technologies)));
+const filterIcons = Array.from(
+  new Set(projects.flatMap((project) => project.importantTechnologies))
+);
 ---
 
 <Layout>
@@ -13,7 +15,7 @@ const filterIcons = Array.from(new Set(projects.flatMap((project) => project.tec
 
     <Card class="w-8/12 mx-auto">
       <div class="text-center">
-        <p>Aquí encontrarás algunos de los proyectos en los que he trabajado.</p>
+        <p>Aquí encontrarás todos los proyectos que he realizado hasta ahora</p>
       </div>
     </Card>
 
@@ -42,44 +44,48 @@ const filterIcons = Array.from(new Set(projects.flatMap((project) => project.tec
 </Layout>
 
 <script>
-  const icons = document.querySelectorAll(".filter");
+  const renderFilter = () => {
+    const icons = document.querySelectorAll(".filter");
 
-  const iconNames: string[] = [];
+    const iconNames: string[] = [];
 
-  icons.forEach((icon) => {
-    icon.addEventListener("click", () => {
-      let name = icon.getAttribute("data-name");
-      let isActive = icon.classList.contains("active");
+    icons.forEach((icon) => {
+      icon.addEventListener("click", () => {
+        let name = icon.getAttribute("data-name");
+        let isActive = icon.classList.contains("active");
 
-      if (isActive && name) {
-        icon.classList.remove("active");
-        iconNames.splice(iconNames.indexOf(name), 1);
-      } else if (name) {
-        icon.classList.add("active");
-        iconNames.push(name);
-      }
+        if (isActive && name) {
+          icon.classList.remove("active");
+          iconNames.splice(iconNames.indexOf(name), 1);
+        } else if (name) {
+          icon.classList.add("active");
+          iconNames.push(name);
+        }
 
-      filterProjects();
+        filterProjects();
+      });
     });
-  });
 
-  function filterProjects() {
-    let projectContainer = document.querySelectorAll(".project-container");
+    function filterProjects() {
+      let projectContainer = document.querySelectorAll(".project-container");
 
-    projectContainer.forEach((project) => {
-      let projectIcons = project.getAttribute("data-icons")?.split(",") || [];
+      projectContainer.forEach((project) => {
+        let projectIcons = project.getAttribute("data-icons")?.split(",") || [];
 
-      if (iconNames.length === 0) {
-        project.classList.remove("hidden");
-      } else {
-        if (iconNames.every((elem) => projectIcons.includes(elem))) {
+        if (iconNames.length === 0) {
           project.classList.remove("hidden");
         } else {
-          project.classList.add("hidden");
+          if (iconNames.every((elem) => projectIcons.includes(elem))) {
+            project.classList.remove("hidden");
+          } else {
+            project.classList.add("hidden");
+          }
         }
-      }
-    });
-  }
+      });
+    }
+  };
+
+  document.addEventListener("astro:page-load", renderFilter);
 </script>
 
 <style>

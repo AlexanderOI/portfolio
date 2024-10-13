@@ -1,8 +1,12 @@
 ---
-import { projects } from "../content/projects/projects";
+import { projects } from "../data/projects";
 import ProjectsCards from "./ProjectsCards.astro";
+import TitleGradient from "./ui/TitleGradient.astro";
 ---
 
-<h2 class="text-center text-3xl font-bold mb-6">Proyectos</h2>
+<div class="text-center">
+  <TitleGradient>Proyectos</TitleGradient>
+  <p class="mb-6">Aun tengo pocos :D</p>
 
-<ProjectsCards projects={projects} />
+  <ProjectsCards projects={projects} />
+</div>
