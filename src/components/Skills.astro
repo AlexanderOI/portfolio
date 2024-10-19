@@ -1,5 +1,9 @@
 ---
-import { SkillsLanguagesIcons } from "../data/skillsIcons";
+import {
+  SkillsFrameworksAndLibrariesIcons,
+  SkillsLanguagesIcons,
+  SkillsToolsIcons,
+} from "../data/skillsIcons";
 import IconSkill from "./ui/IconSkill.astro";
 import TitleGradient from "./ui/TitleGradient.astro";
 ---
@@ -7,9 +11,28 @@ import TitleGradient from "./ui/TitleGradient.astro";
 <div class="mb-20">
   <TitleGradient>Habilidades</TitleGradient>
 
+  <h2 class="text-center text-lg mt-8">Lenguajes</h2>
   <div class="flex justify-center flex-wrap gap-2 mt-2 max-w-[36rem] m-auto">
     {
       SkillsLanguagesIcons.map(({ Icon, name }) => (
+        <IconSkill Icon={Icon} name={name} iconSize="w-5 h-5" textSize="xs" />
+      ))
+    }
+  </div>
+
+  <h2 class="text-center text-lg mt-8">Frameworks y Librerías</h2>
+  <div class="flex justify-center flex-wrap gap-2 mt-2 max-w-[36rem] m-auto">
+    {
+      SkillsFrameworksAndLibrariesIcons.map(({ Icon, name }) => (
+        <IconSkill Icon={Icon} name={name} iconSize="w-5 h-5" textSize="xs" />
+      ))
+    }
+  </div>
+
+  <h2 class="text-center text-lg mt-8">Herramientas de Desarrollo</h2>
+  <div class="flex justify-center flex-wrap gap-2 mt-2 max-w-[36rem] m-auto">
+    {
+      SkillsToolsIcons.map(({ Icon, name }) => (
         <IconSkill Icon={Icon} name={name} iconSize="w-5 h-5" textSize="xs" />
       ))
     }
