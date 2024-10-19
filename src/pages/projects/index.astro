@@ -1,8 +1,8 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import ProjectsCards from "../../components/ProjectsCards.astro";
-import Card from "../../components/ui/card.astro";
-import { projects } from "../../data/projects";
+import Layout from "@/layouts/Layout.astro";
+import ProjectsCards from "@/components/ProjectsCards.astro";
+import Card from "@/components/ui/Card.astro";
+import { projects } from "@/data/projects";
 
 const filterIcons = Array.from(
   new Set(projects.flatMap((project) => project.importantTechnologies))

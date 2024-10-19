@@ -1,9 +1,9 @@
 ---
-import { projects } from "../../data/projects";
-import Layout from "../../layouts/Layout.astro";
-import Card from "../../components/ui/card.astro";
-import GitHubIcon from "../../icons/GitHubIcon.astro";
-import XIcon from "../../icons/common/XIcon.astro";
+import { projects } from "@/data/projects";
+import Layout from "@/layouts/Layout.astro";
+import Card from "@/components/ui/Card.astro";
+import GitHubIcon from "@/icons/GitHubIcon.astro";
+import XIcon from "@/icons/common/XIcon.astro";
 
 export const getStaticPaths = () => {
   return projects.map((project) => ({
