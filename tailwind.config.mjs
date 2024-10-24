@@ -7,6 +7,9 @@ export default {
         "dark-gray": "#333333b2",
         "custom-gradiant": "linear-gradient(to right top, rgb(205, 214, 228), rgb(29, 7, 226))",
       },
+      fontSize: {
+        tiny: "10px",
+      },
     },
   },
   plugins: [],
