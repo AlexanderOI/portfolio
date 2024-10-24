@@ -14,7 +14,7 @@ const { projects } = Astro.props;
   {
     projects.map((project) => (
       <Card
-        class="h-[26rem] p-0 project-container"
+        class="h-[26rem] p-0 project-container hover:shadow-indigo-600 shadow-card"
         icons={project.technologies.map(({ name }) => name).join(",")}
       >
         <a href={`/projects/${project.id}`}>
@@ -34,7 +34,7 @@ const { projects } = Astro.props;
 
             <div class="flex justify-center flex-wrap gap-1 mt-2">
               {project.importantTechnologies.map(({ Icon, name }) => (
-                <IconSkill Icon={Icon} name={name} />
+                <IconSkill Icon={Icon} name={name} textSize="tiny" />
               ))}
             </div>
           </div>
