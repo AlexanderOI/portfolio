@@ -7,8 +7,7 @@ import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/",
-  output: "static",
+  output: "server",
   site: "https://alexander-oi.vercel.app",
   integrations: [sitemap()],
   vite: {
