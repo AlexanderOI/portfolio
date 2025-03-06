@@ -6,6 +6,8 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+  base: "/",
+  output: "static",
   site: "https://alexander-oi.vercel.app",
   integrations: [sitemap()],
   vite: {
