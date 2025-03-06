@@ -10,12 +10,12 @@ import TitleGradient from "@/components/ui/TitleGradient.astro";
     <TitleGradient>Expeciencia</TitleGradient>
 
     <div class="space-y-8 relative">
-      <!-- <div class="absolute h-full w-2 bg-dark-gray left-5 rounded-3xl"></div> -->
+      <!-- <div class="absolute h-full w-2 bg-dark-gray/75 left-5 rounded-3xl"></div> -->
 
       {
         experiences.map((exp) => (
           <Card class="w-full flex gap-x-5" border={false}>
-            <div class="flex-shrink-0 w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center z-50">
+            <div class="shrink-0 w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center z-50">
               <img src={exp.companyLogo} alt={exp.companyName} class="w-8 h-8 " />
             </div>
 

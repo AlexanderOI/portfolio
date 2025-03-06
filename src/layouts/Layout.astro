@@ -1,4 +1,5 @@
 ---
+import './src/styles/global.css'
 import { ClientRouter } from "astro:transitions";
 import BackgroundCanvas from "@/components/ui/BackgroundCanvas.astro";
 import GitHubIcon from "@/icons/GitHubIcon.astro";
@@ -67,7 +68,7 @@ const { title } = Astro.props;
   <body>
     <BackgroundCanvas />
     <header
-      class="flex justify-between bg-dark-gray rounded-xl px-6 py-3 fixed-center z-50 max-md:flex-col max-md:justify-center max-md:items-center"
+      class="flex justify-between bg-dark-gray/75 rounded-xl px-6 py-3 fixed-center z-50 max-md:flex-col max-md:justify-center max-md:items-center"
     >
       <div class="flex">
         <div class="font-bold text-3xl mr-7 max-md:hidden">

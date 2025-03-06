@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark-gray: oklch(30% 0.01 270);
+  --color-custom-gradiant: linear-gradient(to right top, rgb(205, 214, 228), rgb(29, 7, 226));
+}
+
