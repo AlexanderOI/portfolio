@@ -143,4 +143,80 @@ export const projects: Project[] = [
     ],
     githubLink: "https://github.com/AlexanderOI/products_admin",
   },
+  {
+    id: "wino-manager",
+    name: "WINO",
+    description:
+      "Diseño e implementación de una aplicación multiempresa para gestión de proyectos. Arquitectura con control de acceso por roles/permisos y formularios dinámicos. Implementación de funcionalidades clave: Kanban, seguimiento de tareas y notificaciones en tiempo real.",
+    summary: "Aplicación multiempresa para gestión de proyectos",
+    technologies: [
+      Icons.NextJSIcon,
+      Icons.NestJSIcon,
+      Icons.TypeScriptIcon,
+      Icons.SocketIOIcon,
+    ],
+    importantTechnologies: [
+      Icons.NextJSIcon,
+      Icons.NestJSIcon,
+      Icons.SocketIOIcon,
+    ],
+    features: [
+      "Diseño e implementación de una aplicación multiempresa para gestión de proyectos.",
+      "Arquitectura con control de acceso por roles/permisos y formularios dinámicos.",
+      "Implementación de funcionalidades clave: Kanban, seguimiento de tareas y notificaciones en tiempo real.",
+      "Desarrollo full stack con enfoque en escalabilidad y mantenibilidad."
+    ],
+    logo: "/images/logos/logo-products-admin.png", //TODO: Temporal
+    images: [
+      {
+        src: "/images/wino/img_1.png",
+        alt: "Pendiente",
+      },
+      {
+        src: "/images/wino/img_2.png",
+        alt: "Pendiente",
+      },
+      {
+        src: "/images/wino/img_3.png",
+        alt: "Pendiente",
+      },
+      {
+        src: "/images/wino/img_4.png",
+        alt: "Pendiente",
+      },
+      {
+        src: "/images/wino/img_5.png",
+        alt: "Pendiente",
+      },
+      {
+        src: "/images/wino/img_6.png",
+        alt: "Pendiente",
+      },
+      {
+        src: "/images/wino/img_7.png",
+        alt: "Pendiente",
+      },
+      {
+        src: "/images/wino/img_8.png",
+        alt: "Pendiente",
+      },
+      {
+        src: "/images/wino/img_9.png",
+        alt: "Pendiente",
+      },
+      {
+        src: "/images/wino/img_10.png",
+        alt: "Pendiente",
+      },
+      {
+        src: "/images/wino/img_11.png",
+        alt: "Pendiente",
+      },
+      {
+        src: "/images/wino/img_12.png",
+        alt: "Pendiente",
+      },
+    ],
+    githubLink: "https://github.com/AlexanderOI/wino-nextjs",
+  },
 ];

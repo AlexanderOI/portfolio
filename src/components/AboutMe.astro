@@ -5,9 +5,11 @@ import TitleGradient from "@/components/ui/TitleGradient.astro";
 
 <TitleGradient>Sobre mi</TitleGradient>
 
-<div class="flex justify-between items-center flex-col md:flex-row mb-5 gap-5 text-xs">
+<div
+  class="flex justify-between items-center flex-col md:flex-row mb-5 gap-5 text-xs"
+>
   <Card class="py-2 px-4 rounded-md text-center w-fit" border={false}>
-    <span> 21 años </span>
+    <span> 22 años </span>
   </Card>
 
   <Card class="py-2 px-4 rounded-md text-center w-fit" border={false}>
@@ -19,21 +21,32 @@ import TitleGradient from "@/components/ui/TitleGradient.astro";
   </Card>
 </div>
 
-<Card class="flex flex-col gap-3 mb-20">
+<Card class="flex flex-col gap-4 mb-20">
   <p>
-    ¡Hola! Soy Victor Alexander Ortiz Ibañez, Desarrollador Web Full Stack apasionado por la tecnología y la
-    programación.
+    ¡Hola! Soy Victor Alexander Ortiz Ibañez, <strong
+      >Desarrollador Full Stack</strong
+    > apasionado por la tecnología.
   </p>
 
-  <p>
-    Me encanta el desarrollo frontend con React y backend con Node. Siempre abierto a nuevos retos y
-    aprendizajes en el desarrollo de software.
-  </p>
+  <ul class="list-disc list-inside space-y-2">
+    <li>
+      Especializado en la construcción de web apps con <strong>React</strong>, <strong
+        >Next.js</strong
+      > y <strong>Node</strong>.
+    </li>
+    <li>
+      Experiencia en sistemas críticos empresariales y del sector financiero.
+    </li>
+    <li>
+      Base <strong>Full Stack</strong> (Node, NestJS, Laravel) para colaborar en el
+      backend.
+    </li>
+    <li>Enfoque en arquitectura, escalabilidad y experiencia de usuario.</li>
+  </ul>
 
   <p>
-    Mi lema: "Nunca dejes de aprender". Te invito a explorar mis proyectos en GitHub y a contactar
-    si tienes alguna duda o idea para colaborar. Escríbeme a <a
-      class="text-gradient"
+    Mi lema: "Nunca dejes de aprender". Contáctame en <a
+      class="text-gradient font-medium"
       href="mailto:alealexanderoi037@gmail.com">alexanderoi037@gmail.com</a
     >. ¡Hagamos realidad las ideas en código!
   </p>

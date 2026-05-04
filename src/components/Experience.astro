@@ -7,7 +7,7 @@ import TitleGradient from "@/components/ui/TitleGradient.astro";
 
 <div class="mb-20">
   <div class="w-full max-w-4xl mx-auto">
-    <TitleGradient>Expeciencia</TitleGradient>
+    <TitleGradient>Experiencia</TitleGradient>
 
     <div class="space-y-8 relative">
       <!-- <div class="absolute h-full w-2 bg-dark-gray/75 left-5 rounded-3xl"></div> -->
@@ -27,6 +27,7 @@ import TitleGradient from "@/components/ui/TitleGradient.astro";
                 </span>
               </div>
               <h3 class="text-xl font-semibold mb-2">{exp.companyName}</h3>
+              <h4 class="text-lg text-gray-300 font-medium mb-2">{exp.role}</h4>
               <ul class="list-disc list-inside space-y-2">
                 {exp.responsibilities.map((resp) => (
                   <li>{resp}</li>
